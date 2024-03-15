@@ -1,0 +1,34 @@
+/*? project://index.html */
+
+[hidden] {
+  display: none !important;
+}
+
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#main-menu button {
+  width: 200px;
+}
+
+.screen>header {
+  display: flex;
+}
+
+.screen>form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.screen>form>label {
+  display: flex;
+  flex-direction: column;
+}

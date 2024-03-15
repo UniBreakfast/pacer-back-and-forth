@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="head">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' style=' background:black'><text y='16' font-family='Trebuchet MS' font-weight='900' fill='orange'>UB</text></svg>">
+
+  <!--<link rel="stylesheet" href="reset.css">-->
+  <!--<link rel="stylesheet" href="base.css">-->
+  <link rel="stylesheet" href="style.css">
+  <!--<script type="module" src="app.js"></script>-->
+  <!-- <script src="temp.js" defer></script> -->
+  <script src="script.js" defer></script>
+
+  <title>Pacer BaF</title>
+</head>
+
+<body id="body">
+  <main>
+    <div id="main-menu" class="screen">
+      <button>Add Endeavors</button>
+      <button>Add Activities</button>
+    </div>
+
+    <div id="add-endeavor-screen" class="screen" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Add Endeavors</h2>
+      </header>
+
+      <form id="add-endeavor-form">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title">
+        </label>
+
+        <label>
+          <span>Description:</span>
+          <textarea name="descr"></textarea>
+        </label>
+
+        <label>
+          <span>Type:</span>
+          <select name="type">
+            <option value="project">Project</option>
+            <option value="task">Task</option>
+            <option value="goal">Goal</option>
+            <option value="challenge">Challenge</option>
+            <option value="knowledge">Knowledge</option>
+            <option value="skill">Skill</option>
+            <option value="habit">Habit</option>
+            <option value="wish">Wish</option>
+            <option value="dream">Dream</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+
+        <div>
+          <button>Add</button>
+          <button type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="add-activity-screen" class="screen" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Add Activities</h2>
+      </header>
+
+      <form id="add-activity-form">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title">
+        </label>
+
+        <label>
+          <span>Amount:</span>
+          <input type="number" name="amount">
+        </label>
+
+        <label>
+          <span>Unit:</span>
+          <select name="unit">
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="seconds">Seconds</option>
+            <option value="times">Times</option>
+            <option value="repetitions">Repetitions</option>
+            <option value="pages">Pages</option>
+            <option value="kilometers">Kilometers</option>
+            <option value="kilograms">Kilograms</option>
+            <option value="liters">Liters</option>
+          </select>
+        </label>
+
+        <div>
+          <button>Add</button>
+          <button type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>

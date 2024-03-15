@@ -1,0 +1,30 @@
+#! project://todo.txt
+
+Requirements:
+- Frontend only.
+- The application UI should consist of three screens: "Main Menu", "Add Endeavor" and "Add Activity".
+- Only one screen should be displayed at a time.
+
+Main Menu:
+- Column of two buttons "Add Endeavors" and "Add Activities" in the center of the screen.
+- Click on a button should display the corresponding screen.
+
+Add Endeavor:
+- Form with a title "Add Endeavor" at the top.
+- "Back" button on the left from the title.
+- Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
+- Type options: "Project", "Task", "Goal", "Challenge", "Knowledge", "Skill", "Habit", "Wish", "Dream", "Other".
+- Each field should have a label above it.
+- Two buttons "Add" and "Cancel" at the bottom of the form.
+- Click on "Back" or "Cancel" should display the "Main Menu".
+
+Add Activity:
+- Form with a title "Add Activity" at the top.
+- "Back" button on the left from the title.
+- Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown).
+- Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters".
+- Each field should have a label above it.
+- Two buttons "Add" and "Cancel" at the bottom of the form.
+- Click on "Back" or "Cancel" should display the "Main Menu".
+
+#! project://todo.txt
