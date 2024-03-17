@@ -1,1 +1,38 @@
-#? project://requirements.txt
+                  #? project://requirements.txt
+
+Add Endeavor:
+- Click on "Cancel" should display the "Main Menu".
+- Click on "Add" should display the "Endeavors" screen with the added endeavor at the top of the list.
+
+Add Activity:
+- Click on "Cancel" should display the "Main Menu".
+- Click on "Add" should display the "Activities" screen with the added activity at the top of the list.
+
+Endeavors:
+- List (borderless table) of endeavors with the title and type of all added endeavors is displayed.
+- Click on "Add" should display the "Add Endeavor" screen.
+- Click on "Details" should display the "Endeavor" screen with the details of the selected endeavor.
+
+Activities:
+- List (borderless table) of activities with the title, amount and unit of all added activities is displayed.
+- Click on "Add" should display the "Add Activity" screen.
+- Click on "Details" should display the "Activity" screen with the details of the selected activity.
+
+Endeavor:
+- Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
+- Each field should have a label above it.
+- Fields should be prefilled with the details of the specific endeavor.
+- Click on "Back" should display the "Endeavors" screen.
+- Click on "Update" should display the "Endeavors" screen with the updated endeavor at the top of the list.
+- Click on "Revert" should return fields to the state upon entering the screen.
+
+Activity:
+- Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown).
+- Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters".
+- Each field should have a label above it.
+- Fields should be prefilled with the details of the specific activity.
+- Click on "Back" should display the "Activities" screen.
+- Click on "Update" should display the "Activities" screen with the updated activity at the top of the list.
+- Click on "Revert" should return fields to the state upon entering the screen.
+
+                  #? project://requirements.txt

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="head">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' style=' background:black'><text y='16' font-family='Trebuchet MS' font-weight='900' fill='orange'>UB</text></svg>">
+
+  <!--<link rel="stylesheet" href="reset.css">-->
+  <!--<link rel="stylesheet" href="base.css">-->
+  <link rel="stylesheet" href="style.css">
+  <!--<script type="module" src="app.js"></script>-->
+  <script src="script.js" defer></script>
+
+  <title>Pacer BaF</title>
+</head>
+
+<body id="body">
+  <main>
+    <div class="screen" id="main-menu" hidden>
+      <h1>Pacer Game</h1>
+
+      <div class="buttons">
+        <button value="add-endeavor" hidden>Add Endeavors</button>
+        <button value="endeavors" hidden>Endeavors</button>
+        <button value="add-activity" hidden>Add Activities</button>
+        <button value="activities" hidden>Activities</button>
+      </div>
+    </div>
+
+    <div class="screen" id="add-endeavor-scr" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Add Endeavor</h2>
+      </header>
+
+      <form id="add-endeavor-form">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" required>
+        </label>
+
+        <label>
+          <span>Description:</span>
+          <textarea name="description"></textarea>
+        </label>
+
+        <label>
+          <span>Type:</span>
+          <select name="type" required>
+            <option value="project">Project</option>
+            <option value="task">Task</option>
+            <option value="goal">Goal</option>
+            <option value="challenge">Challenge</option>
+            <option value="knowledge">Knowledge</option>
+            <option value="skill">Skill</option>
+            <option value="habit">Habit</option>
+            <option value="wish">Wish</option>
+            <option value="dream">Dream</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button type="submit">Add</button>
+          <button type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="screen" id="endeavors-scr" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Endeavors</h2>
+        <button class="add" value="add-endeavor">Add</button>
+      </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Project</td>
+            <td>Project 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Task</td>
+            <td>Task 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Goal</td>
+            <td>Goal 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Challenge</td>
+            <td>Challenge 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Knowledge</td>
+            <td>Knowledge 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Skill</td>
+            <td>Skill 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Habit</td>
+            <td>Habit 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Wish</td>
+            <td>Wish 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Dream</td>
+            <td>Dream 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Other</td>
+            <td>Other 1</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+    <div class="screen" id="endeavor-scr" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Endeavor</h2>
+      </header>
+
+      <form id="endeavor-form">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" value="Project 1" required>
+        </label>
+
+        <label>
+          <span>Description:</span>
+          <textarea name="description" required>The description of the project 1.</textarea>
+        </label>
+
+        <label>
+          <span>Type:</span>
+          <select name="type" required>
+            <option value="project">Project</option>
+            <option value="task">Task</option>
+            <option value="goal">Goal</option>
+            <option value="challenge">Challenge</option>
+            <option value="knowledge">Knowledge</option>
+            <option value="skill">Skill</option>
+            <option value="habit">Habit</option>
+            <option value="wish">Wish</option>
+            <option value="dream">Dream</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button type="submit">Update</button>
+          <button type="reset">Revert</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="screen" id="add-activity-scr" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Add Activity</h2>
+      </header>
+
+      <form id="add-activity-form">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" required>
+        </label>
+
+        <label>
+          <span>Amount:</span>
+          <input type="number" name="amount" required>
+        </label>
+
+        <label>
+          <span>Unit:</span>
+          <select name="unit" required>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="seconds">Seconds</option>
+            <option value="times">Times</option>
+            <option value="repetitions">Repetitions</option>
+            <option value="pages">Pages</option>
+            <option value="kilometers">Kilometers</option>
+            <option value="kilograms">Kilograms</option>
+            <option value="liters">Liters</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button type="submit">Add</button>
+          <button type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="screen" id="activities-scr" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Activities</h2>
+        <button class="add" value="add-activity">Add</button>
+      </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Activity 1</td>
+            <td>30 minutes</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Activity 2</td>
+            <td>1 hour</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Activity 3</td>
+            <td>3 times</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Activity 4</td>
+            <td>5 kilometers</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Activity 5</td>
+            <td>10 pages</td>
+            <td>
+              <button class="details">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="screen" id="activity-scr" hidden>
+      <header>
+        <button class="back">Back</button>
+        <h2>Activity</h2>
+      </header>
+
+      <form id="activity-form">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" value="Activity 1" required>
+        </label>
+
+        <label>
+          <span>Amount:</span>
+          <input type="number" name="amount" value="30" required>
+        </label>
+
+        <label>
+          <span>Unit:</span>
+          <select name="unit" required>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="seconds">Seconds</option>
+            <option value="times">Times</option>
+            <option value="repetitions">Repetitions</option>
+            <option value="pages">Pages</option>
+            <option value="kilometers">Kilometers</option>
+            <option value="kilograms">Kilograms</option>
+            <option value="liters">Liters</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button type="submit">Update</button>
+          <button type="reset">Revert</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>
