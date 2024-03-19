@@ -85,13 +85,15 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>Project</td>
-            <td>Project 1</td>
-            <td>
-              <button class="details">Details</button>
-            </td>
-          </tr>
+          <template>
+            <tr data-id="">
+              <td></td>
+              <td></td>
+              <td>
+                <button class="details">Details</button>
+              </td>
+            </tr>
+          </template>
           <tr>
             <td>Task</td>
             <td>Task 1</td>
@@ -157,8 +159,6 @@
           </tr>
         </tbody>
       </table>
-
-
     </div>
 
     <div class="screen" id="endeavor-scr" hidden>
@@ -168,6 +168,8 @@
       </header>
 
       <form id="endeavor-form">
+        <input type="hidden" name="id" value="1">
+        
         <label>
           <span>Title:</span>
           <input type="text" name="title" value="Project 1" required>
@@ -257,13 +259,15 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>Activity 1</td>
-            <td>30 minutes</td>
-            <td>
-              <button class="details">Details</button>
-            </td>
-          </tr>
+          <template>
+            <tr data-id="">
+              <td></td>
+              <td></td>
+              <td>
+                <button class="details">Details</button>
+              </td>
+            </tr>
+          </template>
           <tr>
             <td>Activity 2</td>
             <td>1 hour</td>
@@ -303,6 +307,8 @@
       </header>
 
       <form id="activity-form">
+        <input type="hidden" name="id" value="1">
+        
         <label>
           <span>Title:</span>
           <input type="text" name="title" value="Activity 1" required>

@@ -1,4 +1,3 @@
-const scrVisitHistory = [];
 const endeavors = [];
 const activities = [];
 
@@ -14,7 +13,7 @@ const screens = {
       const [addEndeavorBtn, endeavorsBtn, addActivityBtn, activitiesBtn] = document.querySelectorAll('#main-menu button');
       const noEndeavors = !endeavors.length;
       const noActivities = !activities.length;
-      
+
       addEndeavorBtn.hidden = !noEndeavors;
       endeavorsBtn.hidden = noEndeavors;
       addActivityBtn.hidden = !noActivities;
@@ -38,16 +37,103 @@ const screens = {
 
   'endeavors': {
     prep() {
-      const screen = document.getElementById('endeavors-scr');
-      const addBtn = screen.querySelector('.add');
-      const tbody = screen.querySelector('tbody');
-      
+      const scr = document.getElementById('endeavors-scr');
+      const addBtn = scr.querySelector('.add');
+      const tbody = scr.querySelector('tbody');
+      const template = tbody.querySelector('template');
+
       addBtn.onclick = goTo;
-      tbody.onclick = handleDetails;
+      tbody.onclick = handleDetails('endeavor');
+      template.remove();
+
+      this.template = template;
     },
-    
+
     update() {
-      
+      const tbody = document.querySelector('#endeavors-scr tbody');
+      const rows = endeavors.map(({ id, title, type }) => {
+        const row = this.template.content.firstElementChild.cloneNode(true);
+        const [typeCell, titleCell] = row.cells;
+
+        row.dataset.id = id;
+        typeCell.textContent = type;
+        titleCell.textContent = title;
+
+        return row;
+      });
+
+      tbody.replaceChildren(...rows);
+    },
+  },
+
+  'endeavor': {
+    update(id) {
+      const form = document.getElementById('endeavor-form');
+      const endeavor = endeavors.find(end => end.id == id);
+      const { title, description, type } = endeavor;
+
+      form.id.setAttribute('value', id);
+      form.title.setAttribute('value', title);
+      form.description.textContent = description;
+      form.querySelector(`[value="${type}"]`).setAttribute('selected', '');
+    },
+  },
+
+  'add-activity': {
+    prep() {
+      const form = document.getElementById('add-activity-form');
+
+      form.onsubmit = handleAddActivity;
+    },
+
+    update() {
+      const form = document.getElementById('add-activity-form');
+
+      form.reset();
+    },
+  },
+
+  'activities': {
+    prep() {
+      const scr = document.getElementById('activities-scr');
+      const addBtn = scr.querySelector('.add');
+      const tbody = scr.querySelector('tbody');
+      const template = tbody.querySelector('template');
+
+      addBtn.onclick = goTo;
+      tbody.onclick = handleDetails('activity');
+      template.remove();
+
+      this.template = template;
+    },
+
+    update() {
+      const tbody = document.querySelector('#activities-scr tbody');
+      const rows = activities.map(({ id, title, amount, unit }) => {
+        const row = this.template.content.firstElementChild.cloneNode(true);
+        const [titleCell, amountCell] = row.cells;
+
+        row.dataset.id = id;
+        titleCell.textContent = title;
+        amountCell.textContent = `${amount} ${unit}`;
+
+        return row;
+      });
+
+      tbody.replaceChildren(...rows);
+    },
+  },
+
+  'activity': {
+    update(id) {
+      const form = document.getElementById('activity-form');
+      const activity = activities.find(act => act.id == id);
+      const { title, amount, unit } = activity;
+
+      form.id.setAttribute('value', id);
+      form.title.setAttribute('value', title);
+      form.amount.setAttribute('value', amount);
+      form.querySelector(`[value="${unit}"]`).setAttribute('selected', '');
     },
   },
 };
@@ -67,12 +153,56 @@ function handleAddEndeavor(e) {
   const formData = new FormData(form);
   const endeavor = Object.fromEntries(formData);
 
-  endeavors.push(endeavor);
+  addEndeavor(endeavor);
 
   goTo('endeavors');
 }
 
-function goTo(scrNameOrEvent) {
+function handleAddActivity(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const activity = Object.fromEntries(formData);
+
+  addActivity(activity);
+
+  goTo('activities');
+}
+
+function handleDetails(scrName) {
+  return function (e) {
+    const row = e.target.closest('tr');
+    const id = row.dataset.id;
+
+    goTo(scrName, id);
+  }
+}
+
+function addEndeavor(endeavor) {
+  const { title, description, type } = endeavor;
+  const id = genId();
+  const newEndeavor = { id, title, description, type };
+
+  endeavors.push(newEndeavor);
+}
+
+function addActivity(activity) {
+  const { title, amount, unit } = activity;
+  const id = genId();
+  const newActivity = { id, title, amount, unit };
+
+  activities.push(newActivity);
+}
+
+function genId() {
+  genId.next ||= 1;
+
+  return genId.next++;
+}
+
+function goTo(scrNameOrEvent, ...args) {
+  goTo.history ||= [];
   const [main] = document.getElementsByTagName('main');
   const scrName = scrNameOrEvent.target?.value || scrNameOrEvent;
   const scr = document.getElementById(scrName) || document.getElementById(scrName + '-scr');
@@ -84,22 +214,27 @@ function goTo(scrNameOrEvent) {
 
     if (curScr) {
       curScr.hidden = true;
-      scrVisitHistory.push(curScr);
+      if (this != goBack) {
+        const i = goTo.history.indexOf(curScr);
+
+        if (i != -1) goTo.history.length = i + 1;
+        else goTo.history.push(curScr);
+      }
     }
 
     scr.hidden = false;
 
     if (prep) {
-      prep();
+      prep.call(screens[scrName]);
       delete screens[scrName].prep;
     }
 
-    update?.();
+    update?.call(screens[scrName], ...args);
   }
 }
 
 function goBack() {
-  const lastScr = scrVisitHistory.pop();
+  const lastScr = goTo.history.pop();
 
-  if (lastScr) goTo(lastScr.id);
+  if (lastScr) goTo.call(goBack, lastScr.id);
 }
