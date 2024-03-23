@@ -1,5 +1,7 @@
 let confidence = 0;
-const endeavors = [];
+const endeavors = [
+  { id: 1, title: 'Endeavor 1', description: 'Description 1', type: 'Type 1' },
+];
 const activities = [];
 
 const [main] = document.getElementsByTagName('main');
@@ -39,9 +41,20 @@ const screensKits = {
   },
 
   'endeavors': {
-    prep() { },
+    prep(scr) {
+      const template = scr.querySelector('template');
+      
+      this.template = template;
 
-    update() { },
+      template.remove();
+    },
+
+    update(scr) {
+      const tbody = scr.querySelector('tbody');
+      const html = endeavors.map(buildEndeavorRow, this).join('');
+      
+      tbody.innerHTML = html;
+    },
   },
 
   'add-endeavor': {
@@ -123,6 +136,10 @@ function goBack() {
   if (prevScr) goTo.call(goBack, prevScr);
 }
 
+function genId() { genId.next ||= 1;
+  return genId.next++;
+}
+
 function trimFields(e) {
   const form = e.target.closest('form');
   const fields = form.querySelectorAll('input, textarea');
@@ -130,6 +147,26 @@ function trimFields(e) {
   for (const field of fields) {
     field.value = field.value.trim();
   }
+}
+
+function fill(template, data) {
+  const re = /{(\w+)}/g;
+
+  return template.innerHTML.replace(re, (_, key) => data[key]);
+}
+
+function addEndeavor(endeavor) {
+  const { title, description, type } = endeavor;
+  const id = genId();
+  const newEndeavor = { id, title, description, type };
+
+  endeavors.unshift(newEndeavor);
+}
+
+function buildEndeavorRow(endeavor) {
+  const {template} = this;
+
+  return fill(template, endeavor);
 }
 
 function handleGoTo(e) {
