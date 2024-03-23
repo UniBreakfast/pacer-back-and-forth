@@ -1,5 +1,79 @@
-                  #? project://requirements.txt
+#? project://requirements.txt
+#
+Main Menu:
+  - Column of two buttons "Add Endeavors" and "Add Activities" in the center of the screen.
 
+Add Endeavor:
+  - Form with a title "Add Endeavor" at the top.
+  - "Back" button on the left from the title.
+  - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
+  - Type options: "Project", "Task", "Goal", "Challenge", "Knowledge", "Skill", "Habit", "Wish", "Dream", "Other".
+  - Each field should have a label above it.
+  - Two buttons "Add" and "Cancel" at the bottom of the form.
+  - Click on "Back" should bring the user to the previous screen.
+  - Click on "Cancel" should display the "Main Menu".
+  - Click on "Add" should display the "Endeavors" screen with the added endeavor at the top of the list.
+  - Field values should be cleared upon entering the screen.
+  - Field values should be trimmed before adding the endeavor.
 
+Add Activity:
+  - Form with a title "Add Activity" at the top.
+  - "Back" button on the left from the title.
+  - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
+  - Default difficulty is 5.
+  - Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters", "Laps".
+  - Each field should have a label above it.
+  - Two buttons "Add" and "Cancel" at the bottom of the form.
+  - Click on "Back" should bring the user to the previous screen.
+  - Click on "Cancel" should display the "Main Menu".
+  - Click on "Add" should display the "Activities" screen with the added activity at the top of the list.
+  - Field values should be cleared upon entering the screen.
+  - Field values should be trimmed before adding the activity.
 
-                  #? project://requirements.txt
+Endeavors:
+  - List (borderless table) of endeavors with two data columns: "Type" and "Title".
+  - Title "Endeavors" at the top of the list.
+  - "Back" button on the left from the title and "Add" button on the right.
+  - Each endeavor in the list should have a button "Details" on the right.
+  - Click on "Back" should bring the user to the previous screen.
+  - Click on "Add" should display the "Add Endeavor" screen.
+  - Click on "Details" should display the "Endeavor" screen with the details of the selected endeavor.
+
+Activities:
+  - List (borderless table) of activities with three data columns: "Difficulty", "Title", "Amount" (with units).
+  - Title "Activities" at the top of the list.
+  - "Back" button on the left from the title and "Add" button on the right.
+  - Each activity in the list should have a button "Details" on the right.
+  - Click on "Back" should bring the user to the previous screen.
+  - Click on "Add" should display the "Add Activity" screen.
+  - Click on "Details" should display the "Activity" screen with the details of the selected activity.
+
+Endeavor:
+  - Form with a title "Endeavor" at the top.
+  - "Back" button on the left from the title and "Remove" button on the right.
+  - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
+  - Type options: "Project", "Task", "Goal", "Challenge", "Knowledge", "Skill", "Habit", "Wish", "Dream", "Other".
+  - Each field should have a label above it.
+  - Two buttons "Update" and "Revert" at the bottom of the form.
+  - Fields should be prefilled with the details of the specific endeavor.
+  - Click on "Back" should bring the user to the previous screen.
+  - Click on "Remove" should remove the endeavor and display the "Endeavors" screen without it.
+  - Click on "Revert" should return fields to the state upon entering the screen.
+  - Click on "Update" should display the "Endeavors" screen with the updated endeavor at the top of the list.
+  - Field values should be trimmed before updating the endeavor.
+
+Activity:
+  - Form with a title "Activity" at the top.
+  - "Back" button on the left from the title and "Remove" button on the right.
+  - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
+  - Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters", "Laps".
+  - Each field should have a label above it.
+  - Two buttons "Update" and "Revert" at the bottom of the form.
+  - Fields should be prefilled with the details of the specific activity.
+  - Click on "Back" should bring the user to the previous screen.
+  - Click on "Remove" should remove the activity and display the "Activities" screen without it.
+  - Click on "Revert" should return fields to the state upon entering the screen.
+  - Click on "Update" should display the "Activities" screen with the updated activity at the top of the list.
+  - Field values should be trimmed before updating the activity.
+#
+#? project://requirements.txt
