@@ -24,8 +24,10 @@ const screens = {
   'add-endeavor': {
     prep() {
       const form = document.getElementById('add-endeavor-form');
+      const cancelBtn = form.querySelector('[type="button"]');
 
       form.onsubmit = handleAddEndeavor;
+      cancelBtn.onclick = goTo;
     },
 
     update() {
@@ -67,6 +69,12 @@ const screens = {
   },
 
   'endeavor': {
+    prep () {
+      const form = document.getElementById('endeavor-form');
+      
+      form.onsubmit = handleUpdateEndeavor;
+    },
+
     update(id) {
       const form = document.getElementById('endeavor-form');
       const endeavor = endeavors.find(end => end.id == id);
@@ -82,8 +90,10 @@ const screens = {
   'add-activity': {
     prep() {
       const form = document.getElementById('add-activity-form');
+      const cancelBtn = form.querySelector('[type="button"]');
 
       form.onsubmit = handleAddActivity;
+      cancelBtn.onclick = goTo;
     },
 
     update() {
@@ -125,6 +135,12 @@ const screens = {
   },
 
   'activity': {
+    prep () {
+      const form = document.getElementById('activity-form');
+      
+      form.onsubmit = handleUpdateActivity;
+    },
+
     update(id) {
       const form = document.getElementById('activity-form');
       const activity = activities.find(act => act.id == id);
@@ -179,12 +195,44 @@ function handleDetails(scrName) {
   }
 }
 
+function handleUpdateEndeavor(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const endeavor = Object.fromEntries(formData);
+
+  updateEndeavor(endeavor);
+
+  goTo('endeavors');
+}
+
+function handleUpdateActivity(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const activity = Object.fromEntries(formData);
+
+  updateActivity(activity);
+
+  goTo('activities');
+}
+
 function addEndeavor(endeavor) {
   const { title, description, type } = endeavor;
   const id = genId();
   const newEndeavor = { id, title, description, type };
 
-  endeavors.push(newEndeavor);
+  endeavors.unshift(newEndeavor);
+}
+
+function updateEndeavor(endeavor) {
+  const { id } = endeavor;
+  const i = endeavors.findIndex(end => end.id == id);
+
+  endeavors.splice(i, 1);
+  endeavors.unshift(endeavor);
 }
 
 function addActivity(activity) {
@@ -192,7 +240,15 @@ function addActivity(activity) {
   const id = genId();
   const newActivity = { id, title, amount, unit };
 
-  activities.push(newActivity);
+  activities.unshift(newActivity);
+}
+
+function updateActivity(activity) {
+  const { id } = activity;
+  const i = activities.findIndex(act => act.id == id);
+
+  activities.splice(i, 1);
+  activities.unshift(activity);
 }
 
 function genId() {
