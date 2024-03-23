@@ -1,20 +1,7 @@
 #? project://requirements.txt
 #
-Main Menu:
-  - Column of two buttons "Add Endeavors" and "Add Activities" in the center of the screen.
-
 Add Endeavor:
-  - Form with a title "Add Endeavor" at the top.
-  - "Back" button on the left from the title.
-  - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
-  - Type options: "Project", "Task", "Goal", "Challenge", "Knowledge", "Skill", "Habit", "Wish", "Dream", "Other".
-  - Each field should have a label above it.
-  - Two buttons "Add" and "Cancel" at the bottom of the form.
-  - Click on "Back" should bring the user to the previous screen.
-  - Click on "Cancel" should display the "Main Menu".
   - Click on "Add" should display the "Endeavors" screen with the added endeavor at the top of the list.
-  - Field values should be cleared upon entering the screen.
-  - Field values should be trimmed before adding the endeavor.
 
 Add Activity:
   - Form with a title "Add Activity" at the top.

@@ -45,9 +45,19 @@ const screensKits = {
   },
 
   'add-endeavor': {
-    prep() { },
+    prep(scr) {
+      const form = scr.querySelector('form');
+      const addBtn = form.querySelector('button');
 
-    update() { },
+      addBtn.onclick = trimFields;
+      form.onsubmit = handleAddEndeavor;
+    },
+
+    update(scr) {
+      const form = scr.querySelector('form');
+      
+      form.reset();
+    },
   },
 
   'endeavor': {
@@ -113,6 +123,15 @@ function goBack() {
   if (prevScr) goTo.call(goBack, prevScr);
 }
 
+function trimFields(e) {
+  const form = e.target.closest('form');
+  const fields = form.querySelectorAll('input, textarea');
+
+  for (const field of fields) {
+    field.value = field.value.trim();
+  }
+}
+
 function handleGoTo(e) {
   if (e.target.tagName !== 'BUTTON') return;
 
@@ -134,4 +153,15 @@ function handleStart(e) {
   confidence = Number(select.value);
 
   screensKits.menu.update(scr);
+}
+
+function handleAddEndeavor(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const endeavor = Object.fromEntries(new FormData(form));
+
+  addEndeavor(endeavor);
+
+  goTo('endeavors');
 }

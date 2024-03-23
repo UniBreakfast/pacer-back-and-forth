@@ -1,3 +1,50 @@
 [hidden] {
   display: none !important;
 }
+
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+h1 {
+  transform: translateY(-10vh);
+}
+
+#menu>form {
+  transform: translateY(-5vh);
+}
+
+#menu>.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.screen>header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.screen:not(#menu)>form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.screen:not(#menu)>form>label {
+  display: flex;
+  flex-direction: column;
+}
+
+.screen:not(#menu)>form>.buttons {
+  margin-top: 20px;
+  text-align: center;
+}

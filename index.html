@@ -4,7 +4,7 @@
 <head id="head">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' style=' background:black'><text y='16' font-family='Trebuchet MS' font-weight='900' fill='orange'>UB</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' style=' background:black'><text y='16' font-family='Trebuchet MS' font-weight='900' fill='orange'>UB</text></svg>">
 
   <!--<link rel="stylesheet" href="reset.css">-->
   <!--<link rel="stylesheet" href="base.css">-->
@@ -24,10 +24,9 @@
         <label>
           <span>Confidence:</span>
 
-          <output class="confidence" hidden>0</output>
-
           <select name="confidence">
-            <option value="" selected disabled>estimate</option> <!-- mention -->
+            <option value="" selected disabled>estimate</option>
+            <!-- mention -->
             <option>2</option>
             <option>3</option>
             <option>4</option>
@@ -38,11 +37,13 @@
             <option>9</option>
             <option>10</option>
           </select>
-
-          <button disabled>Start</button>
         </label>
+
+        <output class="confidence" hidden>0</output>
+
+        <button disabled>Start</button>
       </form>
-      
+
       <div class="buttons">
         <button value="endeavors">Endeavors</button>
         <button value="add-endeavor">Add Endeavors</button>
@@ -50,18 +51,80 @@
         <button value="add-activity">Add Activity</button>
       </div>
     </div>
-    
+
     <div class="screen" id="endeavors" hidden>
-      <button value="back">Back</button>
-      <button value="add-endeavor">Add</button>
+      <header>
+        <button value="back">Back</button>
+        <h2>Endeavors</h2>
+        <button value="add-endeavor">Add</button>
+      </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <template>
+            <tr>
+              <td>{type}</td>
+              <td>{title}</td>
+              <td>
+                <button value="endeavor" data-id="{id}">Detais</button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
     </div>
-    
+
     <div class="screen" id="activities" hidden>
 
     </div>
-    
-    <div class="screen" id="add-endeavor" hidden>
 
+    <div class="screen" id="add-endeavor" hidden>
+      <header>
+        <button value="back">Back</button>
+        <h2>Add Endeavor</h2>
+      </header>
+      
+      <form>
+        <label>
+          <span>Title:</span>
+          <input type="text" required>
+        </label>
+
+        <label>
+          <span>Description:</span>
+          <textarea></textarea>
+        </label>
+
+        <label>
+          <span>Type:</span>
+          <select required>
+            <option value="" selected disabled>select</option>
+            <option value="project">Project</option>
+            <option value="task">Task</option>
+            <option value="goal">Goal</option>
+            <option value="challenge">Challenge</option>
+            <option value="knowledge">Knowledge</option>
+            <option value="skill">Skill</option>
+            <option value="habit">Habit</option>
+            <option value="wish">Wish</option>
+            <option value="dream">Dream</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        
+        <div class="buttons">
+          <button type="submit">Add</button>
+          <button value="menu">Cancel</button>
+        </div>
+      </form>
     </div>
 
     <div class="screen" id="add-activity" hidden>
