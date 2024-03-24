@@ -135,16 +135,16 @@
           <span>Type:</span>
           <select name="type" required>
             <option value="" selected disabled>select</option>
-            <option value="project">Project</option>
-            <option value="task">Task</option>
-            <option value="goal">Goal</option>
-            <option value="challenge">Challenge</option>
-            <option value="knowledge">Knowledge</option>
-            <option value="skill">Skill</option>
-            <option value="habit">Habit</option>
-            <option value="wish">Wish</option>
-            <option value="dream">Dream</option>
-            <option value="other">Other</option>
+            <option value="project">project</option>
+            <option value="task">task</option>
+            <option value="goal">goal</option>
+            <option value="challenge">challenge</option>
+            <option value="knowledge">knowledge</option>
+            <option value="skill">skill</option>
+            <option value="habit">habit</option>
+            <option value="wish">wish</option>
+            <option value="dream">dream</option>
+            <option value="other">other</option>
           </select>
         </label>
 
@@ -176,16 +176,16 @@
           <span>Unit:</span>
           <select name="unit" required>
             <option value="" selected disabled>select</option>
-            <option>Minutes</option>
-            <option>Hours</option>
-            <option>Seconds</option>
-            <option>Times</option>
-            <option>Repetitions</option>
-            <option>Pages</option>
-            <option>Kilometers</option>
-            <option>Kilogrames</option>
-            <option>Liters</option>
-            <option>Laps</option>
+            <option value="minutes">minutes</option>
+            <option value="hours">hours</option>
+            <option value="seconds">seconds</option>
+            <option value="times">times</option>
+            <option value="repetitions">repetitions</option>
+            <option value="pages">pages</option>
+            <option value="kilometers">kilometers</option>
+            <option value="kilogrames">kilogrames</option>
+            <option value="liters">liters</option>
+            <option value="laps">laps</option>
           </select>
         </label>
 
@@ -193,16 +193,16 @@
           <span>Difficulty:</span>
           <select name="difficulty" required>
             <option value="" selected disabled>select</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
           </select>
         </label>
 
@@ -236,16 +236,16 @@
           <label>
             <span>Type:</span>
             <select name="type" required>
-              <option value="project" selected="if{type}">Project</option>
-              <option value="task" selected="if{type}">Task</option>
-              <option value="goal" selected="if{type}">Goal</option>
-              <option value="challenge" selected="if{type}">Challenge</option>
-              <option value="knowledge" selected="if{type}">Knowledge</option>
-              <option value="skill" selected="if{type}">Skill</option>
-              <option value="habit" selected="if{type}">Habit</option>
-              <option value="wish" selected="if{type}">Wish</option>
-              <option value="dream" selected="if{type}">Dream</option>
-              <option value="other" selected="if{type}">Other</option>
+              <option value="project" selected="{type}">Project</option>
+              <option value="task" selected="{type}">task</option>
+              <option value="goal" selected="{type}">goal</option>
+              <option value="challenge" selected="{type}">challenge</option>
+              <option value="knowledge" selected="{type}">knowledge</option>
+              <option value="skill" selected="{type}">skill</option>
+              <option value="habit" selected="{type}">habit</option>
+              <option value="wish" selected="{type}">wish</option>
+              <option value="dream" selected="{type}">dream</option>
+              <option value="other" selected="{type}">other</option>
             </select>
           </label>
 
@@ -258,7 +258,63 @@
     </div>
 
     <div class="screen" id="activity" hidden>
+      <header>
+        <button value="back">Back</button>
+        <h2>Activity</h2>
+      </header>
 
+      <form>
+        <template>
+          <input type="hidden" name="id" value="{id}">
+
+          <label>
+            <span>Title:</span>
+            <input type="text" name="title" value="{title}" required>
+          </label>
+
+          <label>
+            <span>Amount:</span>
+            <input type="number" name="amount" value="{amount}" required>
+          </label>
+
+          <label>
+            <span>Unit:</span>
+            <select name="unit" required>
+              <option value="minutes" selected="{unit}">minutes</option>
+              <option value="hours" selected="{unit}">hours</option>
+              <option value="seconds" selected="{unit}">seconds</option>
+              <option value="times" selected="{unit}">times</option>
+              <option value="repetitions" selected="{unit}">repetitions</option>
+              <option value="pages" selected="{unit}">pages</option>
+              <option value="kilometers" selected="{unit}">kilometers</option>
+              <option value="kilogrames" selected="{unit}">kilogrames</option>
+              <option value="liters" selected="{unit}">liters</option>
+              <option value="laps" selected="{unit}">laps</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Difficulty:</span>
+            <select name="difficulty" required>
+              <option value="1" selected="{difficulty}">1</option>
+              <option value="2" selected="{difficulty}">2</option>
+              <option value="3" selected="{difficulty}">3</option>
+              <option value="4" selected="{difficulty}">4</option>
+              <option value="5" selected="{difficulty}">5</option>
+              <option value="6" selected="{difficulty}">6</option>
+              <option value="7" selected="{difficulty}">7</option>
+              <option value="8" selected="{difficulty}">8</option>
+              <option value="9" selected="{difficulty}">9</option>
+              <option value="10" selected="{difficulty}">10</option>
+            </select>
+          </label>
+
+          <div class="buttons">
+            <button type="submit">Update</button>
+            <button type="reset">Revert</button>
+          </div>
+        </template>
+      </form>
     </div>
   </main>
 </body>

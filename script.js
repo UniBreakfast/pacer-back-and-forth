@@ -69,7 +69,7 @@ const screensKits = {
   'endeavor': {
     prep(scr) {
       const form = scr.querySelector('form');
-      
+
       this.template = scr.querySelector('template');
       this.template.remove();
 
@@ -79,19 +79,15 @@ const screensKits = {
     update(scr, endeavor) {
       const form = scr.querySelector('form');
       const html = fill(this.template)(endeavor);
-      
+
       form.innerHTML = html;
     },
   },
 
   'activities': {
     prep(scr) {
-      const tbody = scr.querySelector('tbody');
-
       this.template = scr.querySelector('template');
       this.template.remove();
-
-      tbody.onclick = handleDetails(activities);
     },
 
     update(scr) {
@@ -119,9 +115,21 @@ const screensKits = {
   },
 
   'activity': {
-    prep(scr) { },
+    prep(scr) {
+      const form = scr.querySelector('form');
 
-    update(scr) { },
+      this.template = scr.querySelector('template');
+      this.template.remove();
+
+      form.onsubmit = handleUpdateActivity;
+    },
+
+    update(scr, activity) {
+      const form = scr.querySelector('form');
+      const html = fill(this.template)(activity);
+
+      form.innerHTML = html;
+    },
   },
 };
 
@@ -133,7 +141,7 @@ goTo('menu');
 function goTo(scr, options) {
   goTo.history ||= [];
   goTo.lastOptions;
-  
+
   const scrName = scr.id || scr;
   const nextScr = scr.id ? scr
     : document.getElementById(scrName);
@@ -149,8 +157,10 @@ function goTo(scr, options) {
         const index = goTo.history.findIndex(([screen]) => screen === curScr);
 
         if (index >= 0) goTo.history.splice(index);
-        
-        goTo.history.push([curScr, goTo.lastOptions]);
+
+        const setup = [curScr, goTo.lastOptions].filter(Boolean);
+
+        goTo.history.push(setup);
       }
     }
 
@@ -208,16 +218,11 @@ function trimFields(e) {
 function fill(template) {
   return function (data) {
     let html = template.innerHTML
+    const re = /( value="(\w+)") selected="\{(\w+)\}"/g;
 
-    const match = html.match(/ selected="if\{([^"]+)\}"/);
-      
-    if (match) {
-      const [directive, key] = match;
-      const re = new RegExp(`value="${data[key]}"`);
-      
-      html = html.replaceAll(directive, '');
-      html = html.replace(re, match => match + ' selected');
-    }
+    html = html.replace(re, (_, attr, value, key) => {
+      return attr + (value == data[key] ? ' selected' : '');
+    });
 
     html = html.replace(/{(\w+)}/g, (_, key) => data[key]);
 
@@ -243,9 +248,16 @@ function addActivity(activity) {
 
 function updateEndeavor(endeavor) {
   const index = endeavors.findIndex(({ id }) => id == endeavor.id);
-  
+
   endeavors.splice(index, 1);
   endeavors.unshift(endeavor);
+}
+
+function updateActivity(activity) {
+  const index = activities.findIndex(({ id }) => id == activity.id);
+
+  activities.splice(index, 1);
+  activities.unshift(activity);
 }
 
 function handleGoTo(e) {
@@ -253,18 +265,19 @@ function handleGoTo(e) {
 
   const btn = e.target;
   const scrName = btn.value;
-  const setup = {};
+
+  if (!scrName) return;
+
+  if (scrName === 'back') return goBack();
 
   if (btn.dataset.key && btn.dataset.id) {
     const items = data[btn.dataset.key];
     const id = btn.dataset.id;
 
-    Object.assign(setup, { items, id });
+    goTo(scrName, { items, id });
+  } else {
+    goTo(scrName);
   }
-
-  if (scrName === 'back') return goBack();
-
-  if (scrName) goTo(scrName, setup);
 }
 
 function handleStart(e) {
@@ -287,7 +300,7 @@ function handleAddEndeavor(e) {
 
   addEndeavor(endeavor);
 
-  goTo('endeavors');
+  goTo.call(goBack, 'endeavors');
 }
 
 function handleAddActivity(e) {
@@ -298,7 +311,7 @@ function handleAddActivity(e) {
 
   addActivity(activity);
 
-  goTo('activities');
+  goTo.call(goBack, 'activities');
 }
 
 function handleUpdateEndeavor(e) {
@@ -310,4 +323,15 @@ function handleUpdateEndeavor(e) {
   updateEndeavor(endeavor);
 
   goTo('endeavors');
+}
+
+function handleUpdateActivity(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const activity = Object.fromEntries(new FormData(form));
+
+  updateActivity(activity);
+
+  goTo('activities');
 }
