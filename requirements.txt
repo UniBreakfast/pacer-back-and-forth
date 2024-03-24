@@ -32,7 +32,6 @@ Add Activity:
   - Form with a title "Add Activity" at the top.
   - "Back" button on the left from the title.
   - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
-  - Default difficulty is 5.
   - Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters", "Laps".
   - Each field should have a label above it.
   - Two buttons "Add" and "Cancel" at the bottom of the form.

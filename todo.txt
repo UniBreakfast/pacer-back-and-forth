@@ -1,18 +1,6 @@
 #? project://requirements.txt
 #
-Add Endeavor:
-  - Click on "Add" should display the "Endeavors" screen with the added endeavor at the top of the list.
-
 Add Activity:
-  - Form with a title "Add Activity" at the top.
-  - "Back" button on the left from the title.
-  - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
-  - Default difficulty is 5.
-  - Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters", "Laps".
-  - Each field should have a label above it.
-  - Two buttons "Add" and "Cancel" at the bottom of the form.
-  - Click on "Back" should bring the user to the previous screen.
-  - Click on "Cancel" should display the "Main Menu".
   - Click on "Add" should display the "Activities" screen with the added activity at the top of the list.
   - Field values should be cleared upon entering the screen.
   - Field values should be trimmed before adding the activity.

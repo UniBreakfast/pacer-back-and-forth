@@ -24,7 +24,7 @@
         <label>
           <span>Confidence:</span>
 
-          <select name="confidence">
+          <select name="confidence" required>
             <option value="" selected disabled>estimate</option>
             <!-- mention -->
             <option>2</option>
@@ -41,7 +41,7 @@
 
         <output class="confidence" hidden>0</output>
 
-        <button disabled>Start</button>
+        <button>Start</button>
       </form>
 
       <div class="buttons">
@@ -74,7 +74,7 @@
               <td>{type}</td>
               <td>{title}</td>
               <td>
-                <button value="endeavor" data-id="{id}">Detais</button>
+                <button value="endeavor" data-key="endeavors" data-id="{id}">Detais</button>
               </td>
             </tr>
           </template>
@@ -83,7 +83,35 @@
     </div>
 
     <div class="screen" id="activities" hidden>
+      <header>
+        <button value="back">Back</button>
+        <h2>Activities</h2>
+        <button value="add-activity">Add</button>
+      </header>
 
+      <table>
+        <thead>
+          <tr>
+            <th>Difficulty</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <template>
+            <tr>
+              <td>{difficulty}</td>
+              <td>{title}</td>
+              <td>{amount} {unit}</td>
+              <td>
+                <button value="activity" data-key="activities" data-id="{id}">Detais</button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
     </div>
 
     <div class="screen" id="add-endeavor" hidden>
@@ -91,7 +119,7 @@
         <button value="back">Back</button>
         <h2>Add Endeavor</h2>
       </header>
-      
+
       <form>
         <label>
           <span>Title:</span>
@@ -119,7 +147,7 @@
             <option value="other">Other</option>
           </select>
         </label>
-        
+
         <div class="buttons">
           <button type="submit">Add</button>
           <button value="menu">Cancel</button>
@@ -128,11 +156,105 @@
     </div>
 
     <div class="screen" id="add-activity" hidden>
+      <header>
+        <button value="back">Back</button>
+        <h2>Add Activity</h2>
+      </header>
 
+      <form>
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" required>
+        </label>
+
+        <label>
+          <span>Amount:</span>
+          <input type="number" name="amount" required>
+        </label>
+
+        <label>
+          <span>Unit:</span>
+          <select name="unit" required>
+            <option value="" selected disabled>select</option>
+            <option>Minutes</option>
+            <option>Hours</option>
+            <option>Seconds</option>
+            <option>Times</option>
+            <option>Repetitions</option>
+            <option>Pages</option>
+            <option>Kilometers</option>
+            <option>Kilogrames</option>
+            <option>Liters</option>
+            <option>Laps</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Difficulty:</span>
+          <select name="difficulty" required>
+            <option value="" selected disabled>select</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button type="submit">Add</button>
+          <button value="menu">Cancel</button>
+        </div>
+      </form>
     </div>
 
     <div class="screen" id="endeavor" hidden>
+      <header>
+        <button value="back">Back</button>
+        <h2>Endeavor</h2>
+      </header>
 
+      <form>
+        <template>
+          <input type="hidden" name="id" value="{id}">
+
+          <label>
+            <span>Title:</span>
+            <input type="text" name="title" value="{title}" required>
+          </label>
+
+          <label>
+            <span>Description:</span>
+            <textarea name="description">{description}</textarea>
+          </label>
+
+          <label>
+            <span>Type:</span>
+            <select name="type" required>
+              <option value="project" selected="if{type}">Project</option>
+              <option value="task" selected="if{type}">Task</option>
+              <option value="goal" selected="if{type}">Goal</option>
+              <option value="challenge" selected="if{type}">Challenge</option>
+              <option value="knowledge" selected="if{type}">Knowledge</option>
+              <option value="skill" selected="if{type}">Skill</option>
+              <option value="habit" selected="if{type}">Habit</option>
+              <option value="wish" selected="if{type}">Wish</option>
+              <option value="dream" selected="if{type}">Dream</option>
+              <option value="other" selected="if{type}">Other</option>
+            </select>
+          </label>
+
+          <div class="buttons">
+            <button type="submit">Update</button>
+            <button type="reset">Revert</button>
+          </div>
+        </template>
+      </form>
     </div>
 
     <div class="screen" id="activity" hidden>
