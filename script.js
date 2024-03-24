@@ -68,11 +68,13 @@ const screensKits = {
 
   'endeavor': {
     prep(scr) {
+      const removeBtn = scr.querySelector('button[value="remove"]');
       const form = scr.querySelector('form');
 
       this.template = scr.querySelector('template');
       this.template.remove();
 
+      removeBtn.onclick = handleRemoveEndeavor;
       form.onsubmit = handleUpdateEndeavor;
     },
 
@@ -116,11 +118,13 @@ const screensKits = {
 
   'activity': {
     prep(scr) {
+      const removeBtn = scr.querySelector('button[value="remove"]');
       const form = scr.querySelector('form');
 
       this.template = scr.querySelector('template');
       this.template.remove();
 
+      removeBtn.onclick = handleRemoveActivity;
       form.onsubmit = handleUpdateActivity;
     },
 
@@ -161,6 +165,9 @@ function goTo(scr, options) {
         const setup = [curScr, goTo.lastOptions].filter(Boolean);
 
         goTo.history.push(setup);
+
+      } else if (nextScr == curScr) {
+        return goBack();
       }
     }
 
@@ -189,7 +196,7 @@ function goTo(scr, options) {
 }
 
 function goBack() {
-  const [prevScr, options] = goTo.history.pop() || [];
+  let [prevScr, options] = goTo.history.pop() || [];
 
   if (prevScr) {
     try {
@@ -310,6 +317,28 @@ function handleAddActivity(e) {
   const activity = Object.fromEntries(new FormData(form));
 
   addActivity(activity);
+
+  goTo.call(goBack, 'activities');
+}
+
+function handleRemoveEndeavor(e) {
+  const scr = e.target.closest('.screen');
+  const form = scr.querySelector('form');
+  const id = form.id.value;
+  const index = endeavors.findIndex(en => en.id == id);
+
+  endeavors.splice(index, 1);
+
+  goTo.call(goBack, 'endeavors');
+}
+
+function handleRemoveActivity(e) {
+  const scr = e.target.closest('.screen');
+  const form = scr.querySelector('form');
+  const id = form.id.value;
+  const index = activities.findIndex(a => a.id == id);
+
+  activities.splice(index, 1);
 
   goTo.call(goBack, 'activities');
 }

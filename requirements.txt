@@ -19,7 +19,7 @@ Add Endeavor:
   - Form with a title "Add Endeavor" at the top.
   - "Back" button on the left from the title.
   - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
-  - Type options: "Project", "Task", "Goal", "Challenge", "Knowledge", "Skill", "Habit", "Wish", "Dream", "Other".
+  - Type options: "project", "task", "goal", "challenge", "knowledge", "skill", "habit", "wish", "dream", "other".
   - Each field should have a label above it.
   - Two buttons "Add" and "Cancel" at the bottom of the form.
   - Click on "Back" should bring the user to the previous screen.
@@ -32,7 +32,7 @@ Add Activity:
   - Form with a title "Add Activity" at the top.
   - "Back" button on the left from the title.
   - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
-  - Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters", "Laps".
+  - Unit options: "minutes", "hours", "seconds", "times", "repetitions", "pages", "kilometers", "kilogrames", "liters", "laps".
   - Each field should have a label above it.
   - Two buttons "Add" and "Cancel" at the bottom of the form.
   - Click on "Back" should bring the user to the previous screen.
@@ -63,7 +63,7 @@ Endeavor:
   - Form with a title "Endeavor" at the top.
   - "Back" button on the left from the title and "Remove" button on the right.
   - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
-  - Type options: "Project", "Task", "Goal", "Challenge", "Knowledge", "Skill", "Habit", "Wish", "Dream", "Other".
+  - Type options: "project", "task", "goal", "challenge", "knowledge", "skill", "habit", "wish", "dream", "other".
   - Each field should have a label above it.
   - Two buttons "Update" and "Revert" at the bottom of the form.
   - Fields should be prefilled with the details of the specific endeavor.
@@ -77,7 +77,7 @@ Activity:
   - Form with a title "Activity" at the top.
   - "Back" button on the left from the title and "Remove" button on the right.
   - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
-  - Unit options: "Minutes", "Hours", "Seconds", "Times", "Repetitions", "Pages", "Kilometers", "Kilogrames", "Liters", "Laps".
+  - Unit options: "minutes", "hours", "seconds", "times", "repetitions", "pages", "kilometers", "kilogrames", "liters", "laps".
   - Each field should have a label above it.
   - Two buttons "Update" and "Revert" at the bottom of the form.
   - Fields should be prefilled with the details of the specific activity.
