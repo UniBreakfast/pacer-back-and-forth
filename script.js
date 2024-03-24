@@ -145,7 +145,13 @@ function goTo(scr, options) {
     if (curScr) {
       curScr.hidden = true;
 
-      if (this != goBack) goTo.history.push([curScr, goTo.lastOptions]);
+      if (this != goBack) {
+        const index = goTo.history.findIndex(([screen]) => screen === curScr);
+
+        if (index >= 0) goTo.history.splice(index);
+        
+        goTo.history.push([curScr, goTo.lastOptions]);
+      }
     }
 
     goTo.lastOptions = options;
