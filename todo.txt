@@ -2,8 +2,9 @@
 #
 Requirements:
   - Frontend only.
-  - The application UI should consist of 11 screens: "Main Menu", "Add Endeavor", "Endeavors", "Endeavor", "Add Activity", "Activities", "Activity", "New Quest", "Quests","Quest" and "Confidence".
+  - The application UI should consist of 11 screens: "Main Menu", "Add Endeavor", "Endeavors", "Endeavor", "Add Activity", "Activities", "Activity", "New Quest", "Quests", "Quest" and "Confidence".
   - Only one screen should be displayed at a time.
+  - When the same screen visited again that visit should be considered as going back and screens visited since the last visit to the screen should be forgotten for the purpose of going back.
 
 Main Menu:
   - Title "Pacer Game" at the top of the screen.
