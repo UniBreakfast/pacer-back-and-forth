@@ -8,7 +8,10 @@ function handleGoTo(e) {
   if (!btn.value) return;
 
   const value = btn.value;
-  const scr = main[value];
+
+  if (value === 'back') return goBack();
+  
+  const scr = main.children[value];
 
   if (!scr) return;
 

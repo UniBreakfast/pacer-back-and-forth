@@ -8,7 +8,11 @@ function goTo(scr, getData) {
 
   if (i >= 0) history.splice(i);
 
-  if (activeScr) putActiveScrOut(this != goBack);
+  if (activeScr) {
+    const remember = this != goBack && i < 0;
+    
+    putActiveScrOut(remember);
+  }
 
   activeScr = scr;
 
@@ -31,7 +35,7 @@ function goBack() {
 
   const record = history.pop();
   
-  goTo(...record);
+  goTo.call(goBack, ...record);
 }
 
 function putActiveScrOut(remember) {
