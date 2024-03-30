@@ -5,7 +5,19 @@ const screenKits = {
     },
 
     update(scr) {
-
+      const [addEndeavorBtn, endeavorsBtn, addActivityBtn, activitiesBtn, takeQuestBtn, questsBtn, confidenceBtn] = scr.querySelectorAll('.buttons button');
+      
+      const endeavorsExist = endeavors.length > 0;
+      const activitiesExist = activities.length > 0;
+      const questsExist = quests.length > 0;
+      
+      addEndeavorBtn.hidden = endeavorsExist;
+      endeavorsBtn.hidden = !endeavorsExist;
+      addActivityBtn.hidden = activitiesExist;
+      activitiesBtn.hidden = !activitiesExist;
+      takeQuestBtn.hidden = questsExist || !activitiesExist;
+      questsBtn.hidden = !questsExist || !activitiesExist;
+      confidenceBtn.hidden = !activitiesExist;
     },
   },
 
