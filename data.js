@@ -1,5 +1,5 @@
 const endeavors = [];
-const activities = [];
+const activities = [1];
 const quests = [];
 
 let confidence = 0;

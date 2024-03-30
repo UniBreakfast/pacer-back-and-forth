@@ -31,7 +31,8 @@
         <label>
           <span>Confidence:</span>
           
-          <select name="confidence">
+          <select name="confidence" required>
+            <option value="" disabled selected hidden>estimate</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
@@ -65,6 +66,33 @@
       </header>
 
       <form action="">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" required>
+        </label>
+
+        <label>
+          <span>Description:</span>
+          <textarea name="description" required></textarea>
+        </label>
+
+        <label>
+          <span>Type:</span>
+          <select name="type"</select> required>
+            <option value="" disabled selected hidden>select</option>
+            <option>project</option>
+            <option>task</option>
+            <option>goal</option>
+            <option>challenge</option>
+            <option>knowledge</option>
+            <option>skill</option>
+            <option>habit</option>
+            <option>wish</option>
+            <option>dream</option>
+            <option>other</option>
+          </select>
+        </label>
+        
         <div class="buttons">
           <button value="endeavors">Add</button>
           <button value="main-menu">Cancel</button>
@@ -95,6 +123,50 @@
       </header>
 
       <form action="">
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" required>
+        </label>
+
+        <label>
+          <span>Amount:</span>
+          <input type="number" name="amount" required>
+        </label>
+
+        <label>
+          <span>Unit:</span>
+          <select name="unit" required>
+            <option value="" disabled selected hidden>select</option>
+            <option>minutes</option>
+            <option>hours</option>
+            <option>seconds</option>
+            <option>times</option>
+            <option>repetitions</option>
+            <option>pages</option>
+            <option>kilometers</option>
+            <option>kilogrames</option>
+            <option>liters</option>
+            <option>laps</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Difficulty:</span>
+          <select name="difficulty" required>
+            <option value="" disabled selected hidden>estimate</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+        </label>
+
         <div class="buttons">
           <button value="activities">Add</button>
           <button value="main-menu">Cancel</button>
@@ -125,6 +197,40 @@
       </header>
 
       <form action="">
+        <label>
+          <span>Activity:</span>
+          <select name="activity" required>
+            <option value="" disabled selected hidden>select</option>
+            <!-- Add activity options here -->
+          </select>
+        </label>
+
+        <label>
+          <span>Duration:</span>
+          <select name="duration" required>
+            <option value="" disabled selected hidden>plan</option>
+            <!-- Add duration options here -->
+          </select>
+        </label>
+
+        <label>
+          <span>Cost:</span>
+          <input type="text" name="cost">
+        </label>
+
+        <label>
+          <span>Start:</span>
+          <select name="start" required>
+            <option value="" disabled selected hidden>schedule</option>
+            <!-- Add start options here -->
+          </select>
+        </label>
+
+        <label>
+          <span>End:</span>
+          <input type="text" name="end" disabled>
+        </label>
+
         <div class="buttons">
           <button value="quests">Take</button>
           <button value="main-menu">Cancel</button>

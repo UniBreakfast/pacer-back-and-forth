@@ -15,11 +15,33 @@
   gap: 10px;
 }
 
+#main-menu>form {
+  flex-direction: row;
+}
+
 .buttons {
   display: flex;
   gap: 10px;
 }
 
 #main-menu>.buttons {
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form>label { /* mention Confidence label on top */
+  display: flex;
   flex-direction: column;
 }
