@@ -45,10 +45,6 @@ Quests:
   - Click on "Details" should display the "Quest" screen with the details of the selected quest.
 
 Endeavor:
-  - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
-  - Type options: "project", "task", "goal", "challenge", "knowledge", "skill", "habit", "wish", "dream", "other".
-  - Each field should have a label above it.
-  - Two buttons "Update" and "Revert" at the bottom of the form.
   - Fields should be prefilled with the details of the specific endeavor.
   - Click on "Remove" should remove the endeavor and display the "Endeavors" screen without it.
   - Click on "Revert" should return fields to the state upon entering the screen.
@@ -56,10 +52,6 @@ Endeavor:
   - Field values should be trimmed before updating the endeavor and all but the desciption should be required.
 
 Activity:
-  - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
-  - Unit options: "minutes", "hours", "seconds", "times", "repetitions", "pages", "kilometers", "kilogrames", "liters", "laps".
-  - Each field should have a label above it.
-  - Two buttons "Update" and "Revert" at the bottom of the form.
   - Fields should be prefilled with the details of the specific activity.
   - Click on "Remove" should remove the activity and display the "Activities" screen without it.
   - Click on "Revert" should return fields to the state upon entering the screen.
@@ -67,8 +59,6 @@ Activity:
   - Field values should be trimmed before updating the activity and all should be required.
 
 Quest:
-  - Fields arranged in a column: "Status" (text), "Activity" (text), "Duration" (text), "Cost" (text), "Start" (text), "End" (text).
-  - Each field should have a label above it.
   - Fields should be disabled and prefilled with the details of the specific quest.
   - Status should be "taken" if the current date is less than the start date, "ongoing" if the current date is between the start and end dates and "completed" if the current date is greater than the end date.
   - Click on "Remove" should remove the quest and display the "Quests" screen without it.

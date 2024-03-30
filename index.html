@@ -114,6 +114,41 @@
         <h2>Endeavor</h2>
         <button value="endeavors">Remove</button>
       </header>
+
+      <form action="">
+        <input type="hidden" name="id">
+
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" required>
+        </label>
+
+        <label>
+          <span>Description:</span>
+          <textarea name="description" required></textarea>
+        </label>
+
+        <label>
+          <span>Type:</span>
+          <select name="type" required>
+            <option>project</option>
+            <option>task</option>
+            <option>goal</option>
+            <option>challenge</option>
+            <option>knowledge</option>
+            <option>skill</option>
+            <option>habit</option>
+            <option>wish</option>
+            <option>dream</option>
+            <option>other</option>
+          </select>
+        </label>
+        
+        <div class="buttons">
+          <button value="update">Update</button>
+          <button value="revert">Revert</button>
+        </div>
+      </form>
     </div>
 
     <div class="screen" id="add-activity" hidden>
@@ -188,6 +223,57 @@
         <h2>Activity</h2>
         <button value="activities">Remove</button>
       </header>
+
+      <form action="">
+        <input type="hidden" name="id">
+        
+        <label>
+          <span>Title:</span>
+          <input type="text" name="title" required>
+        </label>
+
+        <label>
+          <span>Amount:</span>
+          <input type="number" name="amount" required>
+        </label>
+
+        <label>
+          <span>Unit:</span>
+          <select name="unit" required>
+            <option>minutes</option>
+            <option>hours</option>
+            <option>seconds</option>
+            <option>times</option>
+            <option>repetitions</option>
+            <option>pages</option>
+            <option>kilometers</option>
+            <option>kilogrames</option>
+            <option>liters</option>
+            <option>laps</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Difficulty:</span>
+          <select name="difficulty" required>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button value="update">Update</button>
+          <button value="revert">Revert</button>
+        </div>
+      </form>
     </div>
 
     <div class="screen" id="new-quest" hidden>
@@ -252,6 +338,38 @@
         <h2>Quest</h2>
         <button value="quests">Remove</button>
       </header>
+
+      <form action="">
+        <label>
+          <span>Status:</span>
+          <input type="text" name="status" disabled>
+        </label>
+
+        <label>
+          <span>Activity:</span>
+          <input type="text" name="activity" disabled>
+        </label>
+
+        <label>
+          <span>Duration:</span>
+          <input type="text" name="duration" disabled>
+        </label>
+
+        <label>
+          <span>Cost:</span>
+          <input type="text" name="cost" disabled>
+        </label>
+
+        <label>
+          <span>Start:</span>
+          <input type="text" name="start" disabled>
+        </label>
+
+        <label>
+          <span>End:</span>
+          <input type="text" name="end" disabled>
+        </label>
+      </form>
     </div>
 
     <div class="screen" id="confidence" hidden>
