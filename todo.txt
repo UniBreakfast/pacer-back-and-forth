@@ -1,54 +1,34 @@
 #? project://requirements.txt
 #
-Requirements:
-  - Frontend only.
-  - The application UI should consist of 11 screens: "Main Menu", "Add Endeavor", "Endeavors", "Endeavor", "Add Activity", "Activities", "Activity", "New Quest", "Quests", "Quest" and "Confidence".
-  - Only one screen should be displayed at a time.
-  - When the same screen visited again that visit should be considered as going back and screens visited since the last visit to the screen should be forgotten for the purpose of going back.
-
 Main Menu:
-  - Title "Pacer Game" at the top of the screen.
   - Column of two buttons "Add Endeavors" and "Add Activities" in the center of the screen.
   - If there are any endeavors added display a button "Endeavors" instead of "Add Endeavors".
   - If there are any activities added display a button "Activities" instead of "Add Activities" and also show buttons "Take Quest" and "Confidence" below it.
   - If there are any quests taken display a button "Quests" instead of "Take Quest".
-  - Click on a button should display the corresponding screen.
   - Between the buttons and the title there should be a select (numbes 2 to 10) with a label "Confidence" on the left.
   - The select should have a placeholder "estimate" and be required.
   - On the right from the select there should be a button "Start".
   - Click on "Start" should replace the select and the button with a selected number.
 
 Add Endeavor:
-  - Form with a title "Add Endeavor" at the top.
-  - "Back" button on the left from the title.
   - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
   - Type options: "project", "task", "goal", "challenge", "knowledge", "skill", "habit", "wish", "dream", "other".
   - Each field should have a label above it.
-  - Two buttons "Add" and "Cancel" at the bottom of the form.
-  - Click on "Back" should bring the user to the previous screen.
-  - Click on "Cancel" should display the "Main Menu".
   - Click on "Add" should display the "Endeavors" screen with the added endeavor at the top of the list.
   - Field values should be cleared upon entering the screen.
   - Field values should be trimmed before adding the endeavor and all but the desciption should be required.
   - Type select should have a placeholder "select" and be required.
 
 Add Activity:
-  - Form with a title "Add Activity" at the top.
-  - "Back" button on the left from the title.
   - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
   - Unit options: "minutes", "hours", "seconds", "times", "repetitions", "pages", "kilometers", "kilogrames", "liters", "laps".
   - Each field should have a label above it.
-  - Two buttons "Add" and "Cancel" at the bottom of the form.
-  - Click on "Back" should bring the user to the previous screen.
-  - Click on "Cancel" should display the "Main Menu".
   - Click on "Add" should display the "Activities" screen with the added activity at the top of the list.
   - Field values should be cleared upon entering the screen.
   - Field values should be trimmed before adding the activity and all should be required.
   - Unit and difficulty selects should have placeholders "select" and "estimate" and be required.
 
 Take Quest:
-  - Form with a title "New Quest" at the top.
-  - "Back" button on the left from the title.
   - Fields arranged in a column: "Activity" (dropdown), "Duration" (dropdown), "Cost" (text), "Start" (select), "End" (text)
   - Each field should have a label above it.
   - Activity options should be taken from the list of added activities and have a placeholder "choose".
@@ -61,87 +41,63 @@ Take Quest:
   - Start options should be dates (today and tomorrow) presented as 'today, weekday, date month'.
   - Start select should have a placeholder "schedule" and be required.
   - End should be disabled and autofilled with the date of the start plus the duration presented as 'weekday, date month'.
-  - Two buttons "Take" and "Cancel" at the bottom of the form.
-  - Click on "Back" should bring the user to the previous screen.
-  - Click on "Cancel" should display the "Main Menu".
   - Click on "Take" should display the "Quests" screen with the added quest at the top of the list.
   - Field values should be cleared upon entering the screen.
   - Field values should be trimmed before adding the quest and all should be required.
 
 Endeavors:
   - List (borderless table) of endeavors with two data columns: "Type" and "Title".
-  - Title "Endeavors" at the top of the list.
-  - "Back" button on the left from the title and "Add" button on the right.
   - Each endeavor in the list should have a button "Details" on the right.
-  - Click on "Back" should bring the user to the previous screen.
   - Click on "Add" should display the "Add Endeavor" screen.
   - Click on "Details" should display the "Endeavor" screen with the details of the selected endeavor.
 
 Activities:
   - List (borderless table) of activities with three data columns: "Difficulty", "Title", "Amount" (with units).
-  - Title "Activities" at the top of the list.
   - "Back" button on the left from the title and "Add" button on the right.
   - Each activity in the list should have a button "Details" on the right.
-  - Click on "Back" should bring the user to the previous screen.
   - Click on "Add" should display the "Add Activity" screen.
   - Click on "Details" should display the "Activity" screen with the details of the selected activity.
 
 Quests:
   - List (borderless table) of quests with three data columns: "Status", "Activity", "Duration".
-  - Title "Quests" at the top of the list.
-  - "Back" button on the left from the title and "New" button on the right.
   - Each quest in the list should have a button "Details" on the right.
-  - Click on "Back" should bring the user to the previous screen.
-  - Click on "New" should display the "New Quest" screen.
   - Click on "Details" should display the "Quest" screen with the details of the selected quest.
 
 Endeavor:
-  - Form with a title "Endeavor" at the top.
-  - "Back" button on the left from the title and "Remove" button on the right.
   - Fields arranged in a column: "Title" (text), "Description" (long text), "Type" (dropdown).
   - Type options: "project", "task", "goal", "challenge", "knowledge", "skill", "habit", "wish", "dream", "other".
   - Each field should have a label above it.
   - Two buttons "Update" and "Revert" at the bottom of the form.
   - Fields should be prefilled with the details of the specific endeavor.
-  - Click on "Back" should bring the user to the previous screen.
   - Click on "Remove" should remove the endeavor and display the "Endeavors" screen without it.
   - Click on "Revert" should return fields to the state upon entering the screen.
   - Click on "Update" should display the "Endeavors" screen with the updated endeavor at the top of the list.
   - Field values should be trimmed before updating the endeavor and all but the desciption should be required.
 
 Activity:
-  - Form with a title "Activity" at the top.
-  - "Back" button on the left from the title and "Remove" button on the right.
   - Fields arranged in a column: "Title" (text), "Amount" (number), "Unit" (dropdown), "Difficulty" (select 1 to 10).
   - Unit options: "minutes", "hours", "seconds", "times", "repetitions", "pages", "kilometers", "kilogrames", "liters", "laps".
   - Each field should have a label above it.
   - Two buttons "Update" and "Revert" at the bottom of the form.
   - Fields should be prefilled with the details of the specific activity.
-  - Click on "Back" should bring the user to the previous screen.
   - Click on "Remove" should remove the activity and display the "Activities" screen without it.
   - Click on "Revert" should return fields to the state upon entering the screen.
   - Click on "Update" should display the "Activities" screen with the updated activity at the top of the list.
   - Field values should be trimmed before updating the activity and all should be required.
 
 Quest:
-  - Form with a title "Quest" at the top.
-  - "Back" button on the left from the title and "Remove" button on the right.
   - Fields arranged in a column: "Status" (text), "Activity" (text), "Duration" (text), "Cost" (text), "Start" (text), "End" (text).
   - Each field should have a label above it.
   - Fields should be disabled and prefilled with the details of the specific quest.
   - Status should be "taken" if the current date is less than the start date, "ongoing" if the current date is between the start and end dates and "completed" if the current date is greater than the end date.
-  - Click on "Back" should bring the user to the previous screen.
   - Click on "Remove" should remove the quest and display the "Quests" screen without it.
 
 Confidence:
-  - Form with a title "Confidence" at the top.
-  - "Back" button on the left from the title.
   - Fields arranged in a column: "Current level" (text), "Shift" (number).
   - Each field should have a label above it.
   - Current level should be disabled and prefilled with the number.
   - Shift should have a placeholder "change" and be required.
   - Two buttons "Update" and "Revert" at the bottom of the form.
-  - Click on "Back" should bring the user to the previous screen.
   - Click on "Revert" should return fields to the state upon entering the screen.
   - Click on "Update" should display the "Main Menu" screen with the updated confidence level.
 #

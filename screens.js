@@ -11,7 +11,7 @@ const screenKits = {
 
   'add-endeavor': {
     prep(scr) {
-
+      scr.onsubmit = handleAddEndeavor;
     },
 
     update(scr) {
@@ -31,7 +31,7 @@ const screenKits = {
 
   'endeavor': {
     prep(scr) {
-
+      scr.onsubmit = handleUpdateEndeavor;
     },
 
     update(scr) {
@@ -41,7 +41,7 @@ const screenKits = {
 
   'add-activity': {
     prep(scr) {
-
+      scr.onsubmit = handleAddActivity;
     },
 
     update(scr) {
@@ -61,7 +61,7 @@ const screenKits = {
 
   'activity': {
     prep(scr) {
-
+      scr.onsubmit = handleUpdateActivity;
     },
 
     update(scr) {
@@ -71,7 +71,7 @@ const screenKits = {
 
   'new-quest': {
     prep(scr) {
-
+      scr.onsubmit = handleAddQuest;
     },
 
     update(scr) {
@@ -101,7 +101,7 @@ const screenKits = {
 
   'confidence': {
     prep(scr) {
-
+      scr.onsubmit = handleUpdateConfidence;
     },
 
     update(scr) {

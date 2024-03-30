@@ -27,3 +27,39 @@ function handleGoTo(e) {
 
   goTo(scr, getData);
 }
+
+function handleAddEndeavor(e) {
+  e.preventDefault();
+
+  
+}
+
+function handleUpdateEndeavor(e) {
+  e.preventDefault();
+
+  
+}
+
+function handleAddActivity(e) {
+  e.preventDefault();
+
+  
+}
+
+function handleUpdateActivity(e) {
+  e.preventDefault();
+
+  
+}
+
+function handleAddQuest(e) {
+  e.preventDefault();
+
+  
+}
+
+function handleUpdateConfidence(e) {
+  e.preventDefault();
+
+  
+}
