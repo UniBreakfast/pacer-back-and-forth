@@ -1,16 +1,28 @@
 const screenKits = {
   'main-menu': {
     prep(scr) {
-
+      this.template = scr.querySelector('template');
+      this.template.remove();
+      
+      scr.onsubmit = handleEstimateConfidence; 
     },
 
     update(scr) {
+      const select = scr.querySelector('select');
+      const output = scr.querySelector('output');
+      const startBtn = scr.querySelector('button');
       const [addEndeavorBtn, endeavorsBtn, addActivityBtn, activitiesBtn, takeQuestBtn, questsBtn, confidenceBtn] = scr.querySelectorAll('.buttons button');
       
+      const gameStarted = confidence !== null;
       const endeavorsExist = endeavors.length > 0;
       const activitiesExist = activities.length > 0;
       const questsExist = quests.length > 0;
       
+      output.innerHTML = fill(this.template)({ confidence });
+      
+      select.hidden = gameStarted;
+      startBtn.hidden = gameStarted;
+      output.hidden = !gameStarted;
       addEndeavorBtn.hidden = endeavorsExist;
       endeavorsBtn.hidden = !endeavorsExist;
       addActivityBtn.hidden = activitiesExist;
@@ -38,11 +50,10 @@ const screenKits = {
     },
 
     update(scr) {
-      const tbody = scr.querySelector('tbody');
       const buildRow = fill(this.template);
       const html = endeavors.map(buildRow).join('');
 
-      tbody.innerHTML = html;
+      scr.querySelector('tbody').innerHTML = html;
     },
   },
 
@@ -62,17 +73,21 @@ const screenKits = {
     },
 
     update(scr) {
-
+      scr.querySelector('form').reset();
     },
   },
 
   'activities': {
     prep(scr) {
-
+      this.template = scr.querySelector('template');
+      this.template.remove();
     },
 
     update(scr) {
+      const buildRow = fill(this.template);
+      const html = activities.map(buildRow).join('');
 
+      scr.querySelector('tbody').innerHTML = html;
     },
   },
 

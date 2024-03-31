@@ -3,11 +3,15 @@ const activities = [];
 const quests = [];
 const data = { endeavors, activities, quests };
 
-let confidence = 0;
+let confidence = null;
 let prevId = 1;
 
 function getNextId() {
   return prevId++;
+}
+
+function setConfidence(value) {
+  confidence = value;
 }
 
 function addEndeavor(data) {
@@ -16,4 +20,12 @@ function addEndeavor(data) {
   const endeavor = { id, title, description, type };
 
   endeavors.unshift(endeavor);
+}
+
+function addActivity(data) {
+  const id = getNextId();
+  const { title, amount, unit, difficulty } = data;
+  const activity = { id, title, amount, unit, difficulty };
+
+  activities.unshift(activity);
 }

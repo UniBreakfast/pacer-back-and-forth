@@ -4,7 +4,7 @@
 <head id="head">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' style=' background:black'><text y='16' font-family='Trebuchet MS' font-weight='900' fill='orange'>UB</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' style=' background:black'><text y='16' font-family='Trebuchet MS' font-weight='900' fill='orange'>UB</text></svg>">
 
   <!--<link rel="stylesheet" href="reset.css">-->
   <!--<link rel="stylesheet" href="base.css">-->
@@ -31,7 +31,7 @@
       <form action="">
         <label>
           <span>Confidence:</span>
-          
+
           <select name="confidence" required>
             <option value="" disabled selected hidden>estimate</option>
             <option>2</option>
@@ -45,6 +45,10 @@
             <option>10</option>
           </select>
         </label>
+
+        <output>
+          <template>{confidence}</template>
+        </output>
 
         <button type="submit">Start</button>
       </form>
@@ -93,7 +97,7 @@
             <option>other</option>
           </select>
         </label>
-        
+
         <div class="buttons">
           <button value="endeavors" type="submit">Add</button>
           <button value="main-menu">Cancel</button>
@@ -168,7 +172,7 @@
             <option>other</option>
           </select>
         </label>
-        
+
         <div class="buttons">
           <button value="update" type="submit">Update</button>
           <button value="revert" type="reset">Revert</button>
@@ -240,6 +244,32 @@
         <h2>Activities</h2>
         <button value="add-activity">Add</button>
       </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Difficulty</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <template>
+            <tr>
+              <td>{difficulty}</td>
+              <td>{title}</td>
+              <td>{amount} {unit}</td>
+              <td>
+                <button value="activity" data-key="activities" data-id="{id}">
+                  Details
+                </button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
     </div>
 
     <div class="screen" id="activity" hidden>
@@ -251,7 +281,7 @@
 
       <form action="">
         <input type="hidden" name="id">
-        
+
         <label>
           <span>Title:</span>
           <input type="text" name="title" required>

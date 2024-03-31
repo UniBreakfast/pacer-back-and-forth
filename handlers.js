@@ -8,7 +8,7 @@ function handleGoTo(e) {
   if (!e.target.matches(selector)) return;
 
   const btn = e.target;
-  const {value} = btn;
+  const { value } = btn;
 
   if (value == 'back') return goBack();
 
@@ -43,10 +43,11 @@ function handleAddEndeavor(e) {
 
   const form = e.target;
   const endeavor = Object.fromEntries(new FormData(form));
-  
+
   addEndeavor(endeavor);
 
-  goTo(screens["endeavors"]);
+  // skip putting into history first time
+  goTo.call(endeavors.length === 1 && goBack, screens["endeavors"]);
 }
 
 function handleUpdateEndeavor(e) {
@@ -58,7 +59,13 @@ function handleUpdateEndeavor(e) {
 function handleAddActivity(e) {
   e.preventDefault();
 
+  const form = e.target;
+  const activity = Object.fromEntries(new FormData(form));
 
+  addActivity(activity);
+
+  // skip putting into history first time
+  goTo.call(activities.length === 1 && goBack, screens["activities"]);
 }
 
 function handleUpdateActivity(e) {
@@ -71,6 +78,17 @@ function handleAddQuest(e) {
   e.preventDefault();
 
 
+}
+
+function handleEstimateConfidence(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const value = form.confidence.value;
+  
+  setConfidence(value);
+
+  screenKits['main-menu'].update(screens['main-menu']);
 }
 
 function handleUpdateConfidence(e) {

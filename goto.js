@@ -41,7 +41,7 @@ function goBack() {
 function putActiveScrOut(remember) {
   if (remember) {
     const record = [activeScr];
-  
+
     if (lastGetData) record.push(lastGetData);
   
     history.push(record);

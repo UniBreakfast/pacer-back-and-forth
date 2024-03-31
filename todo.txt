@@ -1,13 +1,5 @@
 #? project://requirements.txt
 #
-Main Menu:
-  - Click on "Start" should replace the select and the button with a selected number.
-
-
-Add Activity:
-  - Click on "Add" should display the "Activities" screen with the added activity at the top of the list.
-  - Field values should be cleared upon entering the screen.
-
 Take Quest:
   - Duration options should be numbers in days from 1 to the maximum number of days based on the current confidence divided by the difficulty of the selected activity rounded down.
   - Start options should be dates (today and tomorrow) presented as 'today, weekday, date month'.
@@ -25,10 +17,6 @@ Endeavors:
   - Click on "Details" should display the "Endeavor" screen with the details of the selected endeavor.
 
 Activities:
-  - List (borderless table) of activities with three data columns: "Difficulty", "Title", "Amount" (with units).
-  - "Back" button on the left from the title and "Add" button on the right.
-  - Each activity in the list should have a button "Details" on the right.
-  - Click on "Add" should display the "Add Activity" screen.
   - Click on "Details" should display the "Activity" screen with the details of the selected activity.
 
 Quests:
