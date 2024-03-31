@@ -4,8 +4,6 @@ Main Menu:
   - Click on "Start" should replace the select and the button with a selected number.
 
 Add Endeavor:
-  - Click on "Add" should display the "Endeavors" screen with the added endeavor at the top of the list.
-  - Field values should be cleared upon entering the screen.
   - Field values should be trimmed before adding the endeavor and all but the desciption should be required.
 
 Add Activity:

@@ -1,5 +1,6 @@
 main.onclick = handleGoTo;
-main.onsubmit = handleSubmit;
+
+main.addEventListener('submit', handleSubmit, true);
 
 function handleGoTo(e) {
   const selector = 'button[value]:not([type="submit"])';
