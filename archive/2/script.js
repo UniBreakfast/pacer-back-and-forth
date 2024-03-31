@@ -231,7 +231,10 @@ function fill(template) {
       return attr + (value == data[key] ? ' selected' : '');
     });
 
-    html = html.replace(/{(\w+)}/g, (_, key) => data[key]);
+    html = html.replace(
+      /{(\w+)}/g,
+      (placeholder, key) => data[key] ?? placeholder
+    );
 
     return html;
   }

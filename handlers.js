@@ -1,17 +1,17 @@
 main.onclick = handleGoTo;
+main.onsubmit = handleSubmit;
 
 function handleGoTo(e) {
-  if (!e.target.matches('button')) return;
+  const selector = 'button[value]:not([type="submit"])';
+
+  if (!e.target.matches(selector)) return;
 
   const btn = e.target;
+  const {value} = btn;
 
-  if (!btn.value) return;
+  if (value == 'back') return goBack();
 
-  const value = btn.value;
-
-  if (value === 'back') return goBack();
-  
-  const scr = main.children[value];
+  const scr = screens[value];
 
   if (!scr) return;
 
@@ -28,38 +28,52 @@ function handleGoTo(e) {
   goTo(scr, getData);
 }
 
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const fields = form.querySelectorAll('input, textarea');
+
+  fields.forEach(f => f.value = f.value.trim());
+}
+
 function handleAddEndeavor(e) {
   e.preventDefault();
 
+  const form = e.target;
+  const endeavor = Object.fromEntries(new FormData(form));
   
+  addEndeavor(endeavor);
+
+  goTo(screens["endeavors"]);
 }
 
 function handleUpdateEndeavor(e) {
   e.preventDefault();
 
-  
+
 }
 
 function handleAddActivity(e) {
   e.preventDefault();
 
-  
+
 }
 
 function handleUpdateActivity(e) {
   e.preventDefault();
 
-  
+
 }
 
 function handleAddQuest(e) {
   e.preventDefault();
 
-  
+
 }
 
 function handleUpdateConfidence(e) {
   e.preventDefault();
 
-  
+
 }

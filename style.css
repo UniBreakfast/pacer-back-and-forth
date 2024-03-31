@@ -15,7 +15,12 @@
   gap: 10px;
 }
 
+h1 {
+  translate: 0 -6vh;
+}
+
 #main-menu>form {
+  translate: 0 -3vh;
   flex-direction: row;
 }
 

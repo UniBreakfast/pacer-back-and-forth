@@ -12,6 +12,7 @@
   <!--<script type="module" src="app.js"></script>-->
   <script src="elements.js" defer></script>
   <script src="screens.js" defer></script>
+  <script src="template.js" defer></script>
   <script src="goto.js" defer></script>
   <script src="data.js" defer></script>
   <script src="handlers.js" defer></script>
@@ -45,7 +46,7 @@
           </select>
         </label>
 
-        <button>Start</button>
+        <button type="submit">Start</button>
       </form>
 
       <div class="buttons">
@@ -73,12 +74,12 @@
 
         <label>
           <span>Description:</span>
-          <textarea name="description" required></textarea>
+          <textarea name="description"></textarea>
         </label>
 
         <label>
           <span>Type:</span>
-          <select name="type"</select> required>
+          <select name="type" required>
             <option value="" disabled selected hidden>select</option>
             <option>project</option>
             <option>task</option>
@@ -94,7 +95,7 @@
         </label>
         
         <div class="buttons">
-          <button value="endeavors">Add</button>
+          <button value="endeavors" type="submit">Add</button>
           <button value="main-menu">Cancel</button>
         </div>
       </form>
@@ -106,6 +107,30 @@
         <h2>Endeavors</h2>
         <button value="add-endeavor">Add</button>
       </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <template>
+            <tr>
+              <td>{type}</td>
+              <td>{title}</td>
+              <td>
+                <button value="endeavor" data-key="endeavors" data-id="{id}">
+                  Details
+                </button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
     </div>
 
     <div class="screen" id="endeavor" hidden>
@@ -125,7 +150,7 @@
 
         <label>
           <span>Description:</span>
-          <textarea name="description" required></textarea>
+          <textarea name="description"></textarea>
         </label>
 
         <label>
@@ -145,8 +170,8 @@
         </label>
         
         <div class="buttons">
-          <button value="update">Update</button>
-          <button value="revert">Revert</button>
+          <button value="update" type="submit">Update</button>
+          <button value="revert" type="reset">Revert</button>
         </div>
       </form>
     </div>
@@ -203,7 +228,7 @@
         </label>
 
         <div class="buttons">
-          <button value="activities">Add</button>
+          <button value="activities" type="submit">Add</button>
           <button value="main-menu">Cancel</button>
         </div>
       </form>
@@ -270,8 +295,8 @@
         </label>
 
         <div class="buttons">
-          <button value="update">Update</button>
-          <button value="revert">Revert</button>
+          <button value="update" type="submit">Update</button>
+          <button value="revert" type="reset">Revert</button>
         </div>
       </form>
     </div>
@@ -318,7 +343,7 @@
         </label>
 
         <div class="buttons">
-          <button value="quests">Take</button>
+          <button value="quests" type="submit">Take</button>
           <button value="main-menu">Cancel</button>
         </div>
       </form>
@@ -380,7 +405,7 @@
 
       <form action="">
         <div class="buttons">
-          <button value="main-menu">Update</button>
+          <button value="main-menu" type="submit">Update</button>
           <button value="main-menu">Cancel</button>
         </div>
       </form>

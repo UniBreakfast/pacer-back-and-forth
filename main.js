@@ -1,1 +1,1 @@
-goTo(main.children['main-menu']);
+goTo(screens['main-menu']);

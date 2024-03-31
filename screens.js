@@ -27,17 +27,22 @@ const screenKits = {
     },
 
     update(scr) {
-
+      scr.querySelector('form').reset();
     },
   },
 
   'endeavors': {
     prep(scr) {
-
+      this.template = scr.querySelector('template');
+      this.template.remove();
     },
 
     update(scr) {
+      const tbody = scr.querySelector('tbody');
+      const buildRow = fill(this.template);
+      const html = endeavors.map(buildRow).join('');
 
+      tbody.innerHTML = html;
     },
   },
 
