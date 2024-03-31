@@ -3,13 +3,10 @@
 Main Menu:
   - Click on "Start" should replace the select and the button with a selected number.
 
-Add Endeavor:
-  - Field values should be trimmed before adding the endeavor and all but the desciption should be required.
 
 Add Activity:
   - Click on "Add" should display the "Activities" screen with the added activity at the top of the list.
   - Field values should be cleared upon entering the screen.
-  - Field values should be trimmed before adding the activity and all should be required.
 
 Take Quest:
   - Duration options should be numbers in days from 1 to the maximum number of days based on the current confidence divided by the difficulty of the selected activity rounded down.
@@ -25,9 +22,6 @@ Take Quest:
   - Field values should be trimmed before adding the quest and all should be required.
 
 Endeavors:
-  - List (borderless table) of endeavors with two data columns: "Type" and "Title".
-  - Each endeavor in the list should have a button "Details" on the right.
-  - Click on "Add" should display the "Add Endeavor" screen.
   - Click on "Details" should display the "Endeavor" screen with the details of the selected endeavor.
 
 Activities:
