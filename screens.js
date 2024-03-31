@@ -62,6 +62,7 @@ const screenKits = {
       this.template = scr.querySelector('template');
       this.template.remove();
 
+      scr.onclick = handleRemoveEndeavor;
       scr.onsubmit = handleUpdateEndeavor;
     },
 
@@ -102,6 +103,7 @@ const screenKits = {
       this.template = scr.querySelector('template');
       this.template.remove();
       
+      scr.onclick = handleRemoveActivity;
       scr.onsubmit = handleUpdateActivity;
     },
 

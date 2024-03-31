@@ -61,6 +61,18 @@ function handleUpdateEndeavor(e) {
   goTo(screens["endeavors"]);
 }
 
+function handleRemoveEndeavor(e) {
+  if (!e.target.matches('[value="remove"]')) return;
+  
+  const btn = e.target;
+  const scr = btn.closest('.screen');
+  const id = scr.querySelector('[name="id"]').value;
+
+  removeEndeavor(id);
+
+  goTo(screens["endeavors"]);
+}
+
 function handleAddActivity(e) {
   e.preventDefault();
 
@@ -80,6 +92,18 @@ function handleUpdateActivity(e) {
   const activity = Object.fromEntries(new FormData(form));
 
   updateActivity(activity);
+
+  goTo(screens["activities"]);
+}
+
+function handleRemoveActivity(e) {
+  if (!e.target.matches('[value="remove"]')) return;
+  
+  const btn = e.target;
+  const scr = btn.closest('.screen');
+  const id = scr.querySelector('[name="id"]').value;
+
+  removeActivity(id);
 
   goTo(screens["activities"]);
 }

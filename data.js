@@ -41,3 +41,15 @@ function updateActivity(activity) {
   activities.splice(index, 1);
   activities.unshift(activity);
 }
+
+function removeEndeavor(id) {
+  const index = endeavors.findIndex(end => end.id == id);
+
+  endeavors.splice(index, 1);
+}
+
+function removeActivity(id) {
+  const index = activities.findIndex(act => act.id == id);
+
+  activities.splice(index, 1);
+}

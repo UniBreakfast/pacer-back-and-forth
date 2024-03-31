@@ -13,30 +13,16 @@ Take Quest:
   - Field values should be cleared upon entering the screen.
   - Field values should be trimmed before adding the quest and all should be required.
 
-Endeavors:
-  - Click on "Details" should display the "Endeavor" screen with the details of the selected endeavor.
-
-Activities:
-  - Click on "Details" should display the "Activity" screen with the details of the selected activity.
-
 Quests:
   - List (borderless table) of quests with three data columns: "Status", "Activity", "Duration".
   - Each quest in the list should have a button "Details" on the right.
   - Click on "Details" should display the "Quest" screen with the details of the selected quest.
 
 Endeavor:
-  - Fields should be prefilled with the details of the specific endeavor.
   - Click on "Remove" should remove the endeavor and display the "Endeavors" screen without it.
-  - Click on "Revert" should return fields to the state upon entering the screen.
-  - Click on "Update" should display the "Endeavors" screen with the updated endeavor at the top of the list.
-  - Field values should be trimmed before updating the endeavor and all but the desciption should be required.
 
 Activity:
-  - Fields should be prefilled with the details of the specific activity.
   - Click on "Remove" should remove the activity and display the "Activities" screen without it.
-  - Click on "Revert" should return fields to the state upon entering the screen.
-  - Click on "Update" should display the "Activities" screen with the updated activity at the top of the list.
-  - Field values should be trimmed before updating the activity and all should be required.
 
 Quest:
   - Fields should be disabled and prefilled with the details of the specific quest.
