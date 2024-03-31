@@ -7,7 +7,7 @@ let confidence = null;
 let prevId = 1;
 
 function getNextId() {
-  return prevId++;
+  return String(prevId++);
 }
 
 function setConfidence(value) {

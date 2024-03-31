@@ -145,38 +145,40 @@
       </header>
 
       <form action="">
-        <input type="hidden" name="id">
-
-        <label>
-          <span>Title:</span>
-          <input type="text" name="title" required>
-        </label>
-
-        <label>
-          <span>Description:</span>
-          <textarea name="description"></textarea>
-        </label>
-
-        <label>
-          <span>Type:</span>
-          <select name="type" required>
-            <option>project</option>
-            <option>task</option>
-            <option>goal</option>
-            <option>challenge</option>
-            <option>knowledge</option>
-            <option>skill</option>
-            <option>habit</option>
-            <option>wish</option>
-            <option>dream</option>
-            <option>other</option>
-          </select>
-        </label>
-
-        <div class="buttons">
-          <button value="update" type="submit">Update</button>
-          <button value="revert" type="reset">Revert</button>
-        </div>
+        <template>
+          <input type="hidden" name="id" value="{id}">
+  
+          <label>
+            <span>Title:</span>
+            <input type="text" name="title" value="{title}" required>
+          </label>
+  
+          <label>
+            <span>Description:</span>
+            <textarea name="description">{description}</textarea>
+          </label>
+  
+          <label>
+            <span>Type:</span>
+            <select name="type" required>
+              <option selected="{if type(project)}">project</option>
+              <option selected="{if type(task)}">task</option>
+              <option selected="{if type(goal)}">goal</option>
+              <option selected="{if type(challenge)}">challenge</option>
+              <option selected="{if type(knowledge)}">knowledge</option>
+              <option selected="{if type(skill)}">skill</option>
+              <option selected="{if type(habit)}">habit</option>
+              <option selected="{if type(wish)}">wish</option>
+              <option selected="{if type(dream)}">dream</option>
+              <option selected="{if type(other)}">other</option>
+            </select>
+          </label>
+  
+          <div class="buttons">
+            <button value="update" type="submit">Update</button>
+            <button value="revert" type="reset">Revert</button>
+          </div>
+        </template>
       </form>
     </div>
 

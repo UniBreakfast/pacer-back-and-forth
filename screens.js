@@ -3,8 +3,8 @@ const screenKits = {
     prep(scr) {
       this.template = scr.querySelector('template');
       this.template.remove();
-      
-      scr.onsubmit = handleEstimateConfidence; 
+
+      scr.onsubmit = handleEstimateConfidence;
     },
 
     update(scr) {
@@ -12,14 +12,14 @@ const screenKits = {
       const output = scr.querySelector('output');
       const startBtn = scr.querySelector('button');
       const [addEndeavorBtn, endeavorsBtn, addActivityBtn, activitiesBtn, takeQuestBtn, questsBtn, confidenceBtn] = scr.querySelectorAll('.buttons button');
-      
+
       const gameStarted = confidence !== null;
       const endeavorsExist = endeavors.length > 0;
       const activitiesExist = activities.length > 0;
       const questsExist = quests.length > 0;
-      
+
       output.innerHTML = fill(this.template)({ confidence });
-      
+
       select.hidden = gameStarted;
       startBtn.hidden = gameStarted;
       output.hidden = !gameStarted;
@@ -59,11 +59,17 @@ const screenKits = {
 
   'endeavor': {
     prep(scr) {
+      this.template = scr.querySelector('template');
+      this.template.remove();
+
       scr.onsubmit = handleUpdateEndeavor;
     },
 
-    update(scr) {
+    update(scr, data) {
+      const form = scr.querySelector('form');
+      const html = fill(this.template)(data);
 
+      form.innerHTML = html;
     },
   },
 

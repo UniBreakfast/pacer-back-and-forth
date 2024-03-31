@@ -232,7 +232,7 @@ function fill(template) {
     });
 
     html = html.replace(
-      /{(\w+)}/g,
+      /\{(\w+)\}/g,
       (placeholder, key) => data[key] ?? placeholder
     );
 
