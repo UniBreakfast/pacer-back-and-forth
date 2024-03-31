@@ -18,12 +18,6 @@ Quests:
   - Each quest in the list should have a button "Details" on the right.
   - Click on "Details" should display the "Quest" screen with the details of the selected quest.
 
-Endeavor:
-  - Click on "Remove" should remove the endeavor and display the "Endeavors" screen without it.
-
-Activity:
-  - Click on "Remove" should remove the activity and display the "Activities" screen without it.
-
 Quest:
   - Fields should be disabled and prefilled with the details of the specific quest.
   - Status should be "taken" if the current date is less than the start date, "ongoing" if the current date is between the start and end dates and "completed" if the current date is greater than the end date.

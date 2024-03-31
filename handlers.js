@@ -70,7 +70,7 @@ function handleRemoveEndeavor(e) {
 
   removeEndeavor(id);
 
-  goTo(screens["endeavors"]);
+  goTo.call(goBack, screens["endeavors"]);
 }
 
 function handleAddActivity(e) {
@@ -105,7 +105,7 @@ function handleRemoveActivity(e) {
 
   removeActivity(id);
 
-  goTo(screens["activities"]);
+  goTo.call(goBack, screens["activities"]);
 }
 
 function handleAddQuest(e) {

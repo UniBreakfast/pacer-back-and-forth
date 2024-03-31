@@ -50,6 +50,10 @@ const screenKits = {
     },
 
     update(scr) {
+      if (!endeavors.length) {
+        return goTo.call(goBack, screens['main-menu']);
+      }
+      
       const buildRow = fill(this.template);
       const html = endeavors.map(buildRow).join('');
 
@@ -91,6 +95,10 @@ const screenKits = {
     },
 
     update(scr) {
+      if (!activities.length) {
+        return goTo.call(goBack, screens['main-menu']); /* mention */
+      }
+      
       const buildRow = fill(this.template);
       const html = activities.map(buildRow).join('');
 
