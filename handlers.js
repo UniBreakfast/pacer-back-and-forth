@@ -23,7 +23,7 @@ function handleGoTo(e) {
   const getData = () => {
     const items = data[key];
 
-    return items.find((item) => item.id === id);
+    return items.find((item) => item.id == id);
   }
 
   goTo(scr, getData);
@@ -47,13 +47,18 @@ function handleAddEndeavor(e) {
   addEndeavor(endeavor);
 
   // skip putting into history first time
-  goTo.call(endeavors.length === 1 && goBack, screens["endeavors"]);
+  goTo.call(endeavors.length == 1 && goBack, screens["endeavors"]);
 }
 
 function handleUpdateEndeavor(e) {
   e.preventDefault();
 
+  const form = e.target;
+  const endeavor = Object.fromEntries(new FormData(form));
+  
+  updateEndeavor(endeavor);
 
+  goTo(screens["endeavors"]);
 }
 
 function handleAddActivity(e) {
@@ -65,13 +70,18 @@ function handleAddActivity(e) {
   addActivity(activity);
 
   // skip putting into history first time
-  goTo.call(activities.length === 1 && goBack, screens["activities"]);
+  goTo.call(activities.length == 1 && goBack, screens["activities"]);
 }
 
 function handleUpdateActivity(e) {
   e.preventDefault();
 
+  const form = e.target;
+  const activity = Object.fromEntries(new FormData(form));
 
+  updateActivity(activity);
+
+  goTo(screens["activities"]);
 }
 
 function handleAddQuest(e) {

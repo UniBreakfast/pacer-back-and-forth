@@ -14,18 +14,30 @@ function setConfidence(value) {
   confidence = value;
 }
 
-function addEndeavor(data) {
+function addEndeavor({ title, description, type }) {
   const id = getNextId();
-  const { title, description, type } = data;
   const endeavor = { id, title, description, type };
 
   endeavors.unshift(endeavor);
 }
 
-function addActivity(data) {
+function addActivity({ title, amount, unit, difficulty }) {
   const id = getNextId();
-  const { title, amount, unit, difficulty } = data;
   const activity = { id, title, amount, unit, difficulty };
 
+  activities.unshift(activity);
+}
+
+function updateEndeavor(endeavor) {
+  const index = endeavors.findIndex(({ id }) => id == endeavor.id);
+
+  endeavors.splice(index, 1);
+  endeavors.unshift(endeavor);
+}
+
+function updateActivity(activity) {
+  const index = activities.findIndex(({ id }) => id == activity.id);
+
+  activities.splice(index, 1);
   activities.unshift(activity);
 }

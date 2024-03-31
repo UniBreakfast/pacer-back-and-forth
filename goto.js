@@ -4,7 +4,7 @@ let activeScr = null;
 let lastGetData = null;
 
 function goTo(scr, getData) {
-  const i = history.findIndex(([s]) => s === scr);
+  const i = history.findIndex(([s]) => s == scr);
 
   if (i >= 0) history.splice(i);
 

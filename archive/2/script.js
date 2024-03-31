@@ -158,7 +158,7 @@ function goTo(scr, options) {
       curScr.hidden = true;
 
       if (this != goBack) {
-        const index = goTo.history.findIndex(([screen]) => screen === curScr);
+        const index = goTo.history.findIndex(([screen]) => screen == curScr);
 
         if (index >= 0) goTo.history.splice(index);
 
@@ -183,7 +183,7 @@ function goTo(scr, options) {
 
     if (options) {
       if (options.items && options.id) {
-        const item = options.items.find(({ id }) => id === options.id);
+        const item = options.items.find(({ id }) => id == options.id);
 
         args.push(item);
       }
@@ -278,7 +278,7 @@ function handleGoTo(e) {
 
   if (!scrName) return;
 
-  if (scrName === 'back') return goBack();
+  if (scrName == 'back') return goBack();
 
   if (btn.dataset.key && btn.dataset.id) {
     const items = data[btn.dataset.key];

@@ -99,11 +99,17 @@ const screenKits = {
 
   'activity': {
     prep(scr) {
+      this.template = scr.querySelector('template');
+      this.template.remove();
+      
       scr.onsubmit = handleUpdateActivity;
     },
 
-    update(scr) {
+    update(scr, data) {
+      const form = scr.querySelector('form');
+      const html = fill(this.template)(data);
 
+      form.innerHTML = html;      
     },
   },
 
