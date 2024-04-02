@@ -23,6 +23,9 @@ function addEndeavor({ title, description, type }) {
 
 function addActivity({ title, amount, unit, difficulty }) {
   const id = getNextId();
+
+  difficulty = Number(difficulty);
+  
   const activity = { id, title, amount, unit, difficulty };
 
   activities.unshift(activity);

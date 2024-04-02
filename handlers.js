@@ -108,6 +108,44 @@ function handleRemoveActivity(e) {
   goTo.call(goBack, screens["activities"]);
 }
 
+function handleNewQuestSelect(e) {
+  const select = e.target;
+  const form = select.closest('form');
+  const {activity, duration, cost, start, end} = form;
+  const id = activity.value;
+  const act = activities.find(act => act.id == id);
+
+  duration.disabled = false;
+  start.disabled = select == activity;
+
+  switch (select) {
+    case activity: {
+      const length = confidence / act.difficulty;
+      const options = Array.from({length}).map((_, i) => new Option(i + 1));
+
+      duration.replaceChildren(duration.firstElementChild, ...options);
+    }
+    case duration: {
+      const today = new Date();
+      const tomorrow = new Date(Date.now() + 86400000);
+      const options = [
+        new Option(dateToLabel(today), today),
+        new Option(dateToLabel(tomorrow), tomorrow),
+      ];
+      
+      cost.value = duration.value && act.difficulty * duration.value;
+
+      start.replaceChildren(start.firstElementChild, ...options);
+    }
+    case start: {
+      const startDate = new Date(start.value);
+      const endDate = new Date(+startDate + 86400000 * (duration.value - 1));
+
+      end.value = start.value && dateToLabel(endDate);
+    }
+  }
+}
+
 function handleAddQuest(e) {
   e.preventDefault();
 

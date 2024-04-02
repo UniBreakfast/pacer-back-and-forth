@@ -27,8 +27,8 @@ const screenKits = {
       endeavorsBtn.hidden = !endeavorsExist;
       addActivityBtn.hidden = activitiesExist;
       activitiesBtn.hidden = !activitiesExist;
-      takeQuestBtn.hidden = questsExist || !activitiesExist;
-      questsBtn.hidden = !questsExist || !activitiesExist;
+      takeQuestBtn.hidden = !gameStarted || questsExist || !activitiesExist;
+      questsBtn.hidden = !gameStarted || !questsExist || !activitiesExist;
       confidenceBtn.hidden = !activitiesExist;
     },
   },
@@ -125,11 +125,28 @@ const screenKits = {
 
   'new-quest': {
     prep(scr) {
+      const form = scr.querySelector('form');
+
+      this.template = scr.querySelector('template');
+      this.template.remove();
+      
+      scr.onchange = handleNewQuestSelect;
       scr.onsubmit = handleAddQuest;
     },
 
     update(scr) {
-
+      const form = scr.querySelector('form');
+      const {activity, duration, start} = form;
+      const availableActivities = activities.filter(act => act.difficulty <= confidence);
+      const html = availableActivities.map(fill(this.template)).join('');
+      
+      scr.querySelector('form').reset();
+      
+      activity.innerHTML = activity.firstElementChild.outerHTML + html;
+      duration.disabled = true;
+      duration.innerHTML = duration.firstElementChild.outerHTML;
+      start.disabled = true;
+      start.innerHTML = start.firstElementChild.outerHTML;
     },
   },
 

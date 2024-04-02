@@ -15,6 +15,7 @@
   <script src="template.js" defer></script>
   <script src="goto.js" defer></script>
   <script src="data.js" defer></script>
+  <script src="date.js" defer></script>
   <script src="handlers.js" defer></script>
   <script src="main.js" defer></script>
 
@@ -346,7 +347,11 @@
           <span>Activity:</span>
           <select name="activity" required>
             <option value="" disabled selected hidden>select</option>
-            <!-- Add activity options here -->
+            <template>
+              <option value="{id}">
+                {difficulty}, {title}, {amount} {unit}
+              </option>
+            </template>
           </select>
         </label>
 
@@ -354,13 +359,13 @@
           <span>Duration:</span>
           <select name="duration" required>
             <option value="" disabled selected hidden>plan</option>
-            <!-- Add duration options here -->
+            
           </select>
         </label>
 
         <label>
           <span>Cost:</span>
-          <input type="text" name="cost">
+          <input type="text" name="cost" disabled>
         </label>
 
         <label>
