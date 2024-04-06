@@ -1,11 +1,6 @@
-#? project://requ irements.txt
+#? project://requirements.txt
 #
-Take Quest:
-  - Click on "Take" should display the "Quests" screen with the added quest at the top of the list.
-
 Quests:
-  - List (borderless table) of quests with three data columns: "Status", "Activity", "Duration".
-  - Each quest in the list should have a button "Details" on the right.
   - Click on "Details" should display the "Quest" screen with the details of the selected quest.
 
 Quest:

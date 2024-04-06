@@ -394,6 +394,32 @@
         <h2>Quests</h2>
         <button value="new-quest">New</button>
       </header>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Activity</th>
+            <th>Duration</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <template>
+            <tr>
+              <td>{status}</td>
+              <td>{title}, {amount} {unit}</td>
+              <td>{duration}</td>
+              <td>
+                <button value="quest" data-key="quests" data-id="{id}">
+                  Details
+                </button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
     </div>
 
     <div class="screen" id="quest" hidden>

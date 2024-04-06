@@ -125,8 +125,6 @@ const screenKits = {
 
   'new-quest': {
     prep(scr) {
-      const form = scr.querySelector('form');
-
       this.template = scr.querySelector('template');
       this.template.remove();
       
@@ -152,11 +150,23 @@ const screenKits = {
 
   'quests': {
     prep(scr) {
-
+      this.template = scr.querySelector('template');
+      this.template.remove();
     },
 
     update(scr) {
+      if (!quests.length) {
+        return goTo.call(goBack, screens['main-menu']);
+      }
+      
+      const buildRow = fill(this.template);
+      const html = quests.map(q => {
+        const {title, amount, unit} = activities.find(act => act.id == q.activity);
 
+        return {...q, title, amount, unit};
+      }).map(buildRow).join('');
+
+      scr.querySelector('tbody').innerHTML = html;
     },
   },
 

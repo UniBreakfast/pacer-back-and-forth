@@ -31,6 +31,23 @@ function addActivity({ title, amount, unit, difficulty }) {
   activities.unshift(activity);
 }
 
+function addQuest({ activity, duration, cost, start, end }) {
+  const id = getNextId();
+  const status = 'pending';
+  const year = new Date().getFullYear();
+
+  duration = Number(duration);
+  cost = Number(cost);
+  start = new Date(`${start} ${year}`);
+  end = new Date(`${end} ${year}`);
+
+  confidence -= cost;
+
+  const quest = { id, activity, duration, cost, start, end, status };
+
+  quests.unshift(quest);
+}
+
 function updateEndeavor(endeavor) {
   const index = endeavors.findIndex(({ id }) => id == endeavor.id);
 

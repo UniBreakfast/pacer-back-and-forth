@@ -155,7 +155,19 @@ function handleNewQuestSelect(e) {
 function handleAddQuest(e) {
   e.preventDefault();
 
+  const form = e.target;
 
+  form.cost.disabled = false;
+  form.end.disabled = false;
+  
+  const quest = Object.fromEntries(new FormData(form));
+
+  form.cost.disabled = true;
+  form.end.disabled = true;
+
+  addQuest(quest);
+
+  goTo.call(quests.length == 1 && goBack, screens["quests"]);
 }
 
 function handleEstimateConfidence(e) {

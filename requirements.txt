@@ -85,7 +85,7 @@ Activities:
   - Click on "Details" should display the "Activity" screen with the details of the selected activity.
 
 Quests:
-  - List (borderless table) of quests with three data columns: "Status", "Activity", "Duration".
+  - List (borderless table) of quests with three data columns: "Status" (planned | ongoing | completed | failed), "Activity" (with title and amount with units), "Duration".
   - Title "Quests" at the top of the list.
   - "Back" button on the left from the title and "New" button on the right.
   - Each quest in the list should have a button "Details" on the right.
