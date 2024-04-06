@@ -137,7 +137,7 @@ const screenKits = {
     update(scr) {
       const form = scr.querySelector('form');
       const {activity, duration, start} = form;
-      const availableActivities = activities.filter(act => act.difficulty <= confidence);
+      const availableActivities = activities.filter(act => act.difficulty <= confidence).sort((a, b) => a.difficulty - b.difficulty);
       const html = availableActivities.map(fill(this.template)).join('');
       
       scr.querySelector('form').reset();

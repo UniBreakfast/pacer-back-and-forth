@@ -65,7 +65,6 @@ Take Quest:
   - Click on "Cancel" should display the "Main Menu".
   - Click on "Take" should display the "Quests" screen with the added quest at the top of the list.
   - Field values should be cleared upon entering the screen.
-  - Field values should be trimmed before adding the quest and all should be required.
 
 Endeavors:
   - List (borderless table) of endeavors with two data columns: "Type" and "Title".

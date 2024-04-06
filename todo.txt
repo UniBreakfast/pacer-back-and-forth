@@ -1,17 +1,7 @@
-#? project://requirements.txt
+#? project://requ irements.txt
 #
 Take Quest:
-  - Activity options should be taken from the list of added activities and have a placeholder "choose".
-  - Each activity should be presented as 'difficulty, title, amount unit'.
-  - Activities options should be sorted by difficulty in ascending order.
-  - Only activities with difficulty less than or equal to the current confidence should be selectable.
-  - Duration options should be numbers in days from 1 to the maximum number of days based on the current confidence divided by the difficulty of the selected activity rounded down.
-  - Start options should be dates (today and tomorrow) presented as 'today, weekday, date month'.
-  - End should be disabled and autofilled with the date of the start plus the duration presented as 'weekday, date month'.
-  - Cost should be disabled and autofilled with the product of the difficulty of the selected activity and the duration.
   - Click on "Take" should display the "Quests" screen with the added quest at the top of the list.
-  - Field values should be cleared upon entering the screen.
-  - Field values should be trimmed before adding the quest and all should be required.
 
 Quests:
   - List (borderless table) of quests with three data columns: "Status", "Activity", "Duration".

@@ -122,8 +122,11 @@ function handleNewQuestSelect(e) {
     case activity: {
       const length = confidence / act.difficulty;
       const options = Array.from({length}).map((_, i) => new Option(i + 1));
+      const value = duration.value;
 
       duration.replaceChildren(duration.firstElementChild, ...options);
+      duration.value = value;
+      duration.value ||= '';
     }
     case duration: {
       const today = new Date();
@@ -132,10 +135,13 @@ function handleNewQuestSelect(e) {
         new Option(dateToLabel(today), today),
         new Option(dateToLabel(tomorrow), tomorrow),
       ];
+      const value = start.value;
       
       cost.value = duration.value && act.difficulty * duration.value;
 
       start.replaceChildren(start.firstElementChild, ...options);
+      start.value = value;
+      start.value ||= '';
     }
     case start: {
       const startDate = new Date(start.value);
