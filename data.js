@@ -73,3 +73,9 @@ function removeActivity(id) {
 
   activities.splice(index, 1);
 }
+
+function removeQuest(id) {
+  const index = quests.findIndex(q => q.id == id);
+
+  quests.splice(index, 1);
+}

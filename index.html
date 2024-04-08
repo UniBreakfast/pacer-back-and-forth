@@ -359,7 +359,6 @@
           <span>Duration:</span>
           <select name="duration" required>
             <option value="" disabled selected hidden>plan</option>
-            
           </select>
         </label>
 
@@ -372,7 +371,6 @@
           <span>Start:</span>
           <select name="start" required>
             <option value="" disabled selected hidden>schedule</option>
-            <!-- Add start options here -->
           </select>
         </label>
 
@@ -426,39 +424,43 @@
       <header>
         <button value="back">Back</button>
         <h2>Quest</h2>
-        <button value="quests">Remove</button>
+        <button value="remove">Remove</button>
       </header>
 
       <form action="">
-        <label>
-          <span>Status:</span>
-          <input type="text" name="status" disabled>
-        </label>
-
-        <label>
-          <span>Activity:</span>
-          <input type="text" name="activity" disabled>
-        </label>
-
-        <label>
-          <span>Duration:</span>
-          <input type="text" name="duration" disabled>
-        </label>
-
-        <label>
-          <span>Cost:</span>
-          <input type="text" name="cost" disabled>
-        </label>
-
-        <label>
-          <span>Start:</span>
-          <input type="text" name="start" disabled>
-        </label>
-
-        <label>
-          <span>End:</span>
-          <input type="text" name="end" disabled>
-        </label>
+        <template>
+          <input type="hidden" name="id" value="{id}">
+          
+          <label>
+            <span>Status:</span>
+            <input type="text" name="status" disabled value="{status}">
+          </label>
+  
+          <label>
+            <span>Activity:</span>
+            <input type="text" name="activity" disabled value="{title}, {amount} {unit}">
+          </label>
+  
+          <label>
+            <span>Duration:</span>
+            <input type="text" name="duration" disabled value="{duration}">
+          </label>
+  
+          <label>
+            <span>Cost:</span>
+            <input type="text" name="cost" disabled value="{cost}">
+          </label>
+  
+          <label>
+            <span>Start:</span>
+            <input type="text" name="start" disabled value="{start}">
+          </label>
+  
+          <label>
+            <span>End:</span>
+            <input type="text" name="end" disabled value="{end}">
+          </label>
+        </template>
       </form>
     </div>
 

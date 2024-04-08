@@ -127,7 +127,7 @@ Quest:
   - Fields arranged in a column: "Status" (text), "Activity" (text), "Duration" (text), "Cost" (text), "Start" (text), "End" (text).
   - Each field should have a label above it.
   - Fields should be disabled and prefilled with the details of the specific quest.
-  - Status should be "taken" if the current date is less than the start date, "ongoing" if the current date is between the start and end dates and "completed" if the current date is greater than the end date.
+  - Status should be "pending" if the current date is less than the start date, "ongoing" if the current date is between the start and end dates and "completed" if the current date is greater than the end date.
   - Click on "Back" should bring the user to the previous screen.
   - Click on "Remove" should remove the quest and display the "Quests" screen without it.
 

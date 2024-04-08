@@ -170,6 +170,18 @@ function handleAddQuest(e) {
   goTo.call(quests.length == 1 && goBack, screens["quests"]);
 }
 
+function handleRemoveQuest(e) {
+  if (!e.target.matches('[value="remove"]')) return;
+
+  const btn = e.target;
+  const scr = btn.closest('.screen');
+  const id = scr.querySelector('[name="id"]').value;
+
+  removeQuest(id);
+
+  goTo.call(goBack, screens["quests"]);
+}
+
 function handleEstimateConfidence(e) {
   e.preventDefault();
 

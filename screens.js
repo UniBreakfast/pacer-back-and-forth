@@ -172,11 +172,24 @@ const screenKits = {
 
   'quest': {
     prep(scr) {
-
+      this.template = scr.querySelector('template');
+      this.template.remove();
+      
+      scr.onclick = handleRemoveQuest;
     },
 
     update(scr) {
+      const buildRow = fill(this.template);
+      const html = quests.map(({start, end, ...q}) => {
+        const {title, amount, unit} = activities.find(act => act.id == q.activity);
 
+        start = dateToLabel(start);
+        end = dateToLabel(end);
+
+        return {...q, start, end, title, amount, unit};
+      }).map(buildRow).join('');
+
+      scr.querySelector('form').innerHTML = html;
     },
   },
 
