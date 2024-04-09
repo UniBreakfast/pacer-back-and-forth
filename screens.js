@@ -199,7 +199,10 @@ const screenKits = {
     },
 
     update(scr) {
-
+      scr.querySelector('form').reset();
+      
+      scr.querySelector('form').current.setAttribute('value', confidence);
+      scr.querySelector('form').shift.setAttribute('min', -confidence);
     },
   },
 };

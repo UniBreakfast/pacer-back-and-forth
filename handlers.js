@@ -186,7 +186,7 @@ function handleEstimateConfidence(e) {
   e.preventDefault();
 
   const form = e.target;
-  const value = form.confidence.value;
+  const value = +form.confidence.value;
   
   setConfidence(value);
 
@@ -196,5 +196,13 @@ function handleEstimateConfidence(e) {
 function handleUpdateConfidence(e) {
   e.preventDefault();
 
+  const form = e.target;
+  
+  const shift = form.shift.valueAsNumber;
 
+  if (confidence + shift < 0) return;
+  
+  confidence += shift;
+
+  screenKits['confidence'].update(screens['confidence']);
 }

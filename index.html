@@ -101,7 +101,7 @@
 
         <div class="buttons">
           <button value="endeavors" type="submit">Add</button>
-          <button value="main-menu">Cancel</button>
+          <button value="main-menu" type="button">Cancel</button>
         </div>
       </form>
     </div>
@@ -236,7 +236,7 @@
 
         <div class="buttons">
           <button value="activities" type="submit">Add</button>
-          <button value="main-menu">Cancel</button>
+          <button value="main-menu" type="button">Cancel</button>
         </div>
       </form>
     </div>
@@ -381,7 +381,7 @@
 
         <div class="buttons">
           <button value="quests" type="submit">Take</button>
-          <button value="main-menu">Cancel</button>
+          <button value="main-menu" type="button">Cancel</button>
         </div>
       </form>
     </div>
@@ -471,9 +471,19 @@
       </header>
 
       <form action="">
+        <label>
+          <span>Current level:</span>
+          <input type="text" name="current" disabled>
+        </label>
+
+        <label>
+          <span>Shift:</span>
+          <input type="number" name="shift" placeholder="change" required>
+        </label>
+
         <div class="buttons">
-          <button value="main-menu" type="submit">Update</button>
-          <button value="main-menu">Cancel</button>
+          <button value="update" type="submit">Update</button>
+          <button value="revert" type="reset">Revert</button>
         </div>
       </form>
     </div>
